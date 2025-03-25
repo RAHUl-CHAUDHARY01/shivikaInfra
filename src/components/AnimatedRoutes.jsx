@@ -8,11 +8,11 @@ import Testimonials from '../pages/Testimonials';
 import Contact from '../pages/Contact';
 import React from 'react';
 const AnimatedRoutes = () => {
-  const location = useLocation();
-  
+  // const location = useLocation();
+  // location={location} key={location.pathname}
   return (
     <AnimatePresence mode='wait'>
-      <Routes location={location} key={location.pathname}>
+      <Routes >
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
