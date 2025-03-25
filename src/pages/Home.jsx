@@ -5,6 +5,7 @@ import { servicesData } from '../constants/services';
 import { testimonialsData } from '../constants/Testimonials';
 import TestimonialCard from '../components/TestimonialCard';
 import React from 'react';
+import { Link } from 'react-router-dom';
 const Home = () => {
   const featuredServices = servicesData.slice(0, 3);
   const featuredTestimonials = testimonialsData.filter(t => t.featured).slice(0, 2);
@@ -24,12 +25,12 @@ const Home = () => {
             </p>
           </div>
           <div className="text-center">
-            <a 
-              href="/about" 
+            <Link 
+              to="/about" 
               className="bg-[#e0bfb8] text-black font-semibold px-6 py-2 rounded-md hover:bg-[#d4a59a] transition inline-block"
             >
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -44,12 +45,12 @@ const Home = () => {
             ))}
           </div>
           <div className="text-center">
-            <a 
-              href="/services" 
+            <Link 
+              to="/services" 
               className="bg-black text-white font-semibold px-6 py-2 rounded-md hover:bg-black-light transition inline-block"
             >
               View All Services
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -64,12 +65,12 @@ const Home = () => {
             ))}
           </div>
           <div className="text-center">
-            <a 
-              href="/testimonials" 
+            <Link 
+              to="/testimonials" 
               className="bg-[#e0bfb8] text-black font-semibold px-6 py-2 rounded-md hover:bg-[#d4a59a] transition inline-block"
             >
               More Testimonials
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -81,12 +82,12 @@ const Home = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Contact us today for expert guidance on your infrastructure needs.
           </p>
-          <a 
-            href="/contact" 
+          <Link
+            to="/contact" 
             className="bg-[#e0bfb8] text-black font-semibold px-8 py-3 rounded-md hover:bg-[#d4a59a] transition inline-block"
           >
             Get in Touch
-          </a>
+          </Link>
         </div>
       </section>
     </div>

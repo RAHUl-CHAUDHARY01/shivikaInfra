@@ -2,6 +2,7 @@
 import ContactForm from '../components/ContactForm';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import React from 'react';
+import { Link } from 'react-router-dom';
 const Contact = () => {
   return (
     <div className="flex flex-col">
@@ -30,10 +31,10 @@ const Contact = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-1">Phone</h3>
                   <p className="mb-1">
-                    <a href="tel:+919899360001" className="hover:text-[#e0bfb8] transition">+91 989 93 600 01</a>
+                    <Link to="tel:+919899360001" className="hover:text-[#e0bfb8] transition">+91 989 93 600 01</Link>
                   </p>
                   <p>
-                    <a href="tel:+917002770037" className="hover:text-[#e0bfb8] transition">+91 700 27 700 37</a>
+                    <Link to="tel:+917002770037" className="hover:text-[#e0bfb8] transition">+91 700 27 700 37</Link>
                   </p>
                 </div>
               </div>
@@ -45,8 +46,8 @@ const Contact = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-1">Email</h3>
                   <p>
-                    <a href="mailto:info@shivikainfra.com" className="hover:text-[#e0bfb8] transition">
-                    shivikainfrasolutions001@gmail.com</a>
+                    <Link to="mailto:info@shivikainfra.com" className="hover:text-[#e0bfb8] transition">
+                    shivikainfrasolutions001@gmail.com</Link>
                   </p>
                 </div>
               </div>

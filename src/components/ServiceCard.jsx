@@ -1,6 +1,7 @@
 // components/ServiceCard.jsx
 import { motion } from 'framer-motion';
 import React from 'react';
+import { Link } from 'react-router-dom';
 const ServiceCard = ({ service }) => {
   return (
     <motion.div 
@@ -15,12 +16,12 @@ const ServiceCard = ({ service }) => {
       </div>
       <h3 className="text-xl font-bold mb-2 text-black">{service.title}</h3>
       <p className="text-gray-600">{service.description}</p>
-      <a 
-        href="/services" 
+      <Link 
+        to="/services" 
         className="mt-4 inline-block text-[#e0bfb8] font-medium hover:underline"
       >
         Learn more →
-      </a>
+      </Link>
     </motion.div>
   );
 };

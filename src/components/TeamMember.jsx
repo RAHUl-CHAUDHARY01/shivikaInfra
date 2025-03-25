@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import React from 'react';
+import { Link } from 'react-router-dom';
 const TeamMember = ({ member }) => {
   return (
     <motion.div 
@@ -18,24 +19,24 @@ const TeamMember = ({ member }) => {
         <p className="text-gray-600 mb-4">{member.bio}</p>
         <div className="flex space-x-4">
           {member.social.linkedin && (
-            <a 
-              href={member.social.linkedin} 
+            <Link 
+              to={member.social.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-black hover:text-[#e0bfb8] transition"
             >
               <FaLinkedin size={20} />
-            </a>
+            </Link>
           )}
           {member.social.twitter && (
-            <a 
-              href={member.social.twitter} 
+            <Link 
+              to={member.social.twitter} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-black hover:text-[#e0bfb8] transition"
             >
               <FaTwitter size={20} />
-            </a>
+            </Link>
           )}
         </div>
       </div>
