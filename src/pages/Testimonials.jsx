@@ -1,4 +1,4 @@
-import { testimonialsData } from '../constants/testimonials';
+import { testimonialsData } from '../constants/Testimonials';
 import TestimonialCard from '../components/TestimonialCard';
 import React from 'react';
 const Testimonials = () => {
