@@ -5,6 +5,7 @@ import img1 from '../assets/img1.webp';
 import img2 from '../assets/img2.webp';
 import img3 from '../assets/img3.webp';
 import img4 from '../assets/img4.webp';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const slides = [
@@ -139,14 +140,14 @@ const Hero = () => {
                   transition: { delay: 0.7, duration: 0.7 }
                 }}
               >
-                <a 
-                  href={index === 0 ? "/contact" : 
+                <Link 
+                  to={index === 0 ? "/contact" : 
                        index === 1 ? "/services" : 
                        index === 2 ? "/services" : "/about"}
                   className="bg-[#e0bfb8] text-black font-semibold px-8 py-3 rounded-md hover:bg-[#d4a59a] transition-all inline-block shadow-lg"
                 >
                   {slide.cta}
-                </a>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

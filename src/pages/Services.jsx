@@ -4,6 +4,7 @@ import React from 'react';
 import gaurcity from '../assets/gaurcity.webp';
 import eledico from '../assets/eledico.webp';
 import royalcity from '../assets/royalcity.webp';
+import { Link } from 'react-router-dom';
 const Services = () => {
   const locations = [
     {
@@ -157,12 +158,12 @@ const Services = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Contact us for personalized service solutions in your area
           </p>
-          <a 
-            href="/contact" 
+          <Link 
+            to="/contact" 
             className="inline-block bg-[#e0bfb8] text-black font-semibold px-8 py-3 rounded-md hover:bg-[#d4a59a] transition"
           >
             Get Custom Quote
-          </a>
+          </Link>
         </div>
       </section>
     </div>
