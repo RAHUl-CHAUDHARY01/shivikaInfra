@@ -2,7 +2,7 @@
 import Hero from '../components/Hero';
 import ServiceCard from '../components/ServiceCard';
 import { servicesData } from '../constants/services';
-import { testimonialsData } from '../constants/testimonials';
+import { testimonialsData } from '../constants/Testimonials';
 import TestimonialCard from '../components/TestimonialCard';
 import React from 'react';
 const Home = () => {
