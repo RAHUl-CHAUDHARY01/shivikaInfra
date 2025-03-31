@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaPhoneAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -36,22 +37,20 @@ const Header = () => {
 
   const contactInfo = [
     { icon: <FaPhoneAlt className="mr-2" />, text: '+91 989 93 600 01' },
-    { icon: <MdEmail className="mr-2" />, text: 'info@shivikainfra.com' },
+    { icon: <MdEmail className="mr-2" />, text: 'shivikainfrasolutions001@gmail.com' },
   ];
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black py-2 shadow-xl' : 'bg-black py-3'}`}>
-      {/* Removed backdrop-blur and background opacity changes */}
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#404040]/90 py-2 shadow-md' : 'bg-transparent py-3'}`}>
       <div className="container mx-auto px-4">
-
         {/* Main Navigation */}
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-gradient-to-r from-[#e0bfb8] to-[#d4a59a] bg-clip-text text-transparent"
+              className="text-2xl font-light tracking-wide bg-gradient-to-r from-[#d4b2a7] to-[#b76e79] bg-clip-text text-transparent"
             >
-              Shivika Infra Solutions
+              Shivika Infra
             </motion.div>
           </Link>
 
@@ -61,16 +60,16 @@ const Header = () => {
               <div key={link.path} className="relative group">
                 <Link
                   to={link.path}
-                  className={`px-2 py-1 text-white hover:text-[#e0bfb8] transition-colors ${location.pathname === link.path ? 'text-[#e0bfb8] font-semibold' : ''}`}
+                  className={`px-2 py-1 text-white hover:text-[#d4b2a7] transition-all duration-300 ${location.pathname === link.path ? 'text-[#d4b2a7] font-light tracking-wide' : 'font-light'}`}
                 >
                   {link.name}
                 </Link>
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: location.pathname === link.path ? '100%' : 0 }}
-                  className="h-0.5 bg-[#e0bfb8] absolute bottom-0 left-0"
+                  className="h-0.5 bg-[#b76e79] absolute bottom-0 left-0"
                 />
-                <div className="absolute left-0 right-0 h-0.5 bg-[#e0bfb8] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+                <div className="absolute left-0 right-0 h-0.5 bg-[#b76e79] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
               </div>
             ))}
           </nav>
@@ -82,7 +81,7 @@ const Header = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <FaTimes size={24} className="text-[#e0bfb8]" />
+              <FaTimes size={24} className="text-[#d4b2a7]" />
             ) : (
               <FaBars size={24} />
             )}
@@ -96,7 +95,7 @@ const Header = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: '100%' }}
                 transition={{ type: 'spring', damping: 25 }}
-                className="fixed inset-0 bg-black flex flex-col items-center justify-center space-y-8"
+                className="fixed inset-0 bg-[#404040] flex flex-col items-center justify-center space-y-8"
               >
                 {navLinks.map((link) => (
                   <motion.div
@@ -107,7 +106,7 @@ const Header = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`text-2xl ${location.pathname === link.path ? 'text-[#e0bfb8] font-bold' : 'text-white'}`}
+                      className={`text-2xl font-light tracking-wide ${location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'}`}
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
@@ -121,10 +120,10 @@ const Header = () => {
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="flex items-center justify-center text-lg text-[#e0bfb8]"
+                      className="flex items-center justify-center text-lg text-[#d4b2a7]"
                     >
                       {item.icon}
-                      <span>{item.text}</span>
+                      <span className="font-light">{item.text}</span>
                     </motion.div>
                   ))}
                 </div>
