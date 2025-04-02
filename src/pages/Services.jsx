@@ -37,6 +37,10 @@ const Services = () => {
     {
       name: "Allotment Assistance",
       services: servicesData.filter(s => s.category === 'allotment')
+    },
+    {
+      name: "Liasoning Services",
+      services: servicesData.filter(s => s.category === 'Liasioning')
     }
   ];
 

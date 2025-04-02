@@ -7,6 +7,7 @@ import Team from '../pages/Team';
 import Testimonials from '../pages/Testimonials';
 import Contact from '../pages/Contact';
 import React from 'react';
+import Portfolio from '../pages/Portfolio';
 const AnimatedRoutes = () => {
   // const location = useLocation();
   // location={location} key={location.pathname}
@@ -19,6 +20,7 @@ const AnimatedRoutes = () => {
         <Route path="/team" element={<Team />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </AnimatePresence>
   );

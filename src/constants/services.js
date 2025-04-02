@@ -1,3 +1,5 @@
+import { desc } from "framer-motion/client";
+
 export const servicesData = [
     {
       title: "Map Approvals",
@@ -76,5 +78,89 @@ export const servicesData = [
       description: "Handling all necessary paperwork and formalities",
       category: "allotment",
       icon: "📝"
+    },
+    {
+      title:"Mortage Permissions",
+      description:"Assistance with obtaining mortgage permissions",
+      category:"allotment",
+      icon:"💳"
     }
+    ,{
+      title:"Change of Address",
+      description:"Assistance with obtaining change of address permissions",
+      category:"allotment",
+      icon:"🏠"
+    }
+    ,{
+      title:"Transfer of Property",
+      description:"Assistance with obtaining transfer of property permissions",
+      category:"allotment",
+      icon:"🚚"
+    },
+    {
+      title:"Mutation",
+      description:"Assistance with obtaining mutation permissions",
+      category:"Liasioning",
+      icon:"🔁"
+    }
+    ,{
+      title:"Time Extension for lease deed amd construction permit",
+      description:"Assistance with obtaining time extension for lease deed and construction permit",
+      category:"Liasioning",
+      icon:"⌛"
+    }
+    ,{
+      title:"One Time Payment",
+      description:"Assistance with obtaining one time payment",
+      category:"Liasioning",
+      icon:"💰"
+    }
+    ,{
+      title:"change in Shareholders & trustees",
+      description:"Assistance with obtaining change in shareholders and trustees",
+      category:"Liasioning",
+      icon:"👤"
+    }
+    ,{
+      title:"Surrender of plot",
+      description:"Assistance with obtaining surrender of plot",
+      category:"Liasioning",
+      icon:"🏢"
+    }
+    ,{
+      title:"Restoration of allotment",
+      description:"Assistance with obtaining restoration of allotment",
+      category:"Liasioning",
+      icon:"🔁"
+    }
+    ,{
+      title:"Calculation/Verification of deposits",
+      description:"Assistance with obtaining calculation/verification of deposits",
+      category:"Liasioning",
+      icon:"💰"
+    }
+    ,{
+      title:"Issue of Duplicate papers",
+      description:"help in dealing with duplicate papers",
+      category:"Liasioning",
+      icon:"📝"
+    }
+  ,{
+    title:"Rescheduling of payment",
+    description:"Assistance with obtaining rescheduling of payment",
+    category:"Liasioning",
+    icon:"⌛"
+  }
+  ,{
+    title:"Change in project/Name",
+    description:"Assistance with obtaining change of project/name",
+    category:"Liasioning",
+    icon:"🏠"
+  }
+  ,{
+    title:"Refund of excess amount",
+    description:"Assistance with obtaining refund of excess amount",
+    category:"Liasioning",   
+    icon:"💰"
+  }
   ];

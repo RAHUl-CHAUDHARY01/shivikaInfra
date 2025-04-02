@@ -18,10 +18,9 @@ const Home = () => {
       <section className="py-16 bg-[#f5f0e8]"> {/* Soft beige background */}
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-light mb-4 text-[#b76e79] tracking-wide">About Shivika Infra Solutions</h2>
+            <h2 className="text-3xl font-light mb-4 text-[#b76e79] tracking-wide">About Shivika Infra</h2>
             <p className="text-lg text-[#5a5a5a] leading-relaxed">
-              Approved consultancy for Greater Noida Authority, Noida Authority, and Yamuna Authority. 
-              We specialize in compliance, real estate, and allotment services with a proven track record.
+            Welcome to Shivika Infra, your trusted real estate partner in Greater Noida and the Yamuna Expressway region. With a commitment to excellence, we specialize in the sale, purchase, renting, and construction of residential, commercial, and industrial properties. 
             </p>
           </div>
           <div className="text-center">

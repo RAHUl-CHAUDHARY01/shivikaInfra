@@ -36,12 +36,16 @@ const About = () => {
               viewport={{ once: true }}
               className="md:w-1/2"
             >
-              <h2 className="text-3xl font-light mb-6 text-[#505050] tracking-wide">Our Story</h2>
+              <h2 className="text-3xl font-light mb-6 text-[#505050] tracking-wide">Welcome to Shivika Infra</h2>
               <p className="text-lg mb-4 text-[#5a5a5a] leading-relaxed">
-                Shivika Infra Solutions began as a small consultancy firm with a vision to simplify complex infrastructure processes for businesses and individuals.
+                Your trusted real estate partner in Greater Noida and Yamuna expressway region. With the commitment to excellence, we specialize in sale,purchase,renting and construction of residential , commercial and industrial properties. 
               </p>
               <p className="text-lg mb-4 text-[#5a5a5a] leading-relaxed">
-                Today, we're proud to be an approved consultancy for the Greater Noida Authority, Noida Authority, and Yamuna Authority, helping hundreds of clients navigate compliance, real estate, and allotment processes.
+              Our experienced team ensures high-quality developments, blending modern amenities with strategic locations.<br/>
+              At Shivika Infra, we don’t just build structures, we create thriving communities and investment opportunities. Let us help you turn your real estate vision into reality.<br/>
+              Shivika Infra excels in real estate solutions across Greater Noida and Yamuna Expressway. We specialize in the sale, purchase, renting, and construction of residential, commercial, and industrial properties. With a focus on quality, innovation, and strategic locations, we create spaces that offer value and growth opportunities.
+
+
               </p>
             </motion.div>
             <motion.div 
