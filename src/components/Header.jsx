@@ -49,7 +49,7 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-3xl font-[600] font-poppins  tracking-wide bg-white bg-clip-text text-transparent"
+              className="text-2xl font-[600] font-poppins  tracking-wide bg-white bg-clip-text text-transparent"
             >
               Shivika Infra
             </motion.div>
