@@ -9,6 +9,8 @@ import jpgreens from '../assets/jpgreens.jpg';
 import godrejgolf from '../assets/godrejgolf.jpg';
 import jpaman from '../assets/jpaman.jpg';
 import { Link } from 'react-router-dom';
+import hero1 from '../assets/hero1.jpg';
+import hero2 from '../assets/hero2.jpg';
 
 const Hero = () => {
   // Refined color theme palette
@@ -27,13 +29,13 @@ const Hero = () => {
       title: "Building Your Vision, Securing Your Future",
       subtitle: "Approved consultancy for Greater Noida, Noida, and Yamuna Authorities",
       cta: "Get Started",
-      bgImage: jpgreens
+      bgImage: hero1
     },
     {
       title: "Expert Compliance Solutions",
       subtitle: "Streamlined approvals for maps, certificates, NOCs and more",
       cta: "Our Services",
-      bgImage: godrejgolf
+      bgImage: hero2
     },
     {
       title: "Trusted Real Estate Partners",

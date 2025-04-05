@@ -49,7 +49,7 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-light tracking-wide bg-gradient-to-r from-[#d4b2a7] to-[#b76e79] bg-clip-text text-transparent"
+              className="text-3xl font-[600] font-poppins  tracking-wide bg-white bg-clip-text text-transparent"
             >
               Shivika Infra
             </motion.div>
@@ -61,7 +61,7 @@ const Header = () => {
               <div key={link.path} className="relative group">
                 <Link
                   to={link.path}
-                  className={`px-2 py-1 text-white hover:text-[#d4b2a7] transition-all duration-300 ${location.pathname === link.path ? 'text-[#d4b2a7] font-light tracking-wide' : 'font-light'}`}
+                  className={`px-2 py-1 text-white font-[600] hover:text-[#d4b2a7] transition-all duration-300 ${location.pathname === link.path ? 'text-[#d4b2a7] tracking-wide' : ''}`}
                 >
                   {link.name}
                 </Link>
