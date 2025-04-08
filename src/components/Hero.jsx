@@ -7,11 +7,11 @@ import img3 from '../assets/img3.webp';
 import img4 from '../assets/img4.webp';
 import jpgreens from '../assets/jpgreens.jpg';
 import godrejgolf from '../assets/godrejgolf.jpg';
-import jpaman from '../assets/jpaman.jpg';
+import jpaman from '../assets/jpaman.jpeg';
 import { Link } from 'react-router-dom';
 import hero1 from '../assets/hero1.jpg';
 import hero2 from '../assets/hero2.jpg';
-
+import image2 from '../assets/image2.jpg';
 const Hero = () => {
   // Refined color theme palette
   const theme = {
@@ -35,7 +35,7 @@ const Hero = () => {
       title: "Expert Compliance Solutions",
       subtitle: "Streamlined approvals for maps, certificates, NOCs and more",
       cta: "Our Services",
-      bgImage: hero2
+      bgImage: image2
     },
     {
       title: "Trusted Real Estate Partners",
