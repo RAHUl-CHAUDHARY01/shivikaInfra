@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaPhoneAlt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
@@ -9,27 +9,55 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only apply scroll effect on desktop screens (md and up)
       if (window.innerWidth >= 768) {
         setScrolled(window.scrollY > 10);
       } else {
-        // Always keep solid background on mobile
         setScrolled(true);
       }
     };
     window.addEventListener('scroll', handleScroll);
-    // Initialize the state based on screen size
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
     { path: '/', name: 'Home' },
-    { path: '/about', name: 'About' },
-    { path: '/services', name: 'Services' },
+    { 
+      path: '/about', 
+      name: 'About',
+      hasDropdown: false,
+    },
+    { 
+      path: '/services', 
+      name: 'Services',
+      hasDropdown: true,
+      categories: [
+        {
+          name: 'GNIDA',
+          subcategories: ['Residential', 'Commercial', 'Industrial']
+        },
+        {
+          name: 'Yamuna',
+          subcategories: ['Architecture', 'Interior', 'Landscape']
+        },
+        {
+          name: 'Real-Estate',
+          subcategories: ['Rent', 'Sale', 'Feasibility Studies']
+        },
+        {
+          name: 'Upcoming Project',
+          subcategories : ['Project-1', 'Project-2', 'Project-3']
+        },
+        {
+          name: 'Ongoing Project',
+          subcategories:['Project-1', 'Project-2', 'Project-3']
+        }
+      ]
+    },
     { path: '/team', name: 'Team' },
     { path: '/testimonials', name: 'Testimonials' },
     { path: '/portfolio', name: 'Portfolio' },
@@ -41,29 +69,41 @@ const Header = () => {
     { icon: <MdEmail className="mr-2" />, text: 'shivikainfrasolutions001@gmail.com' },
   ];
 
+  const handleSubcategoryClick = (category, subcategory) => {
+    // Navigate to contact page with subcategory as a query parameter
+    navigate(`/contact?category=${encodeURIComponent(category)}&subcategory=${encodeURIComponent(subcategory)}`);
+  };
+
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#404040]/90 py-2 shadow-md' : 'bg-transparent py-3'}`}>
       <div className="container mx-auto px-4">
         {/* Main Navigation */}
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-[600] font-poppins  tracking-wide bg-white bg-clip-text text-transparent"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap"
+              style={{fontFamily:"Jost"}}
             >
               Shivika Infra
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-2 lg:space-x-8">
             {navLinks.map((link) => (
-              <div key={link.path} className="relative group">
+              <div 
+                key={link.path} 
+                className="relative group"
+              >
                 <Link
                   to={link.path}
-                  className={`px-2 py-1 text-white font-[600] hover:text-[#d4b2a7] transition-all duration-300 ${location.pathname === link.path ? 'text-[#d4b2a7] tracking-wide' : ''}`}
+                  className={`px-1 lg:px-2 py-1 text-sm lg:text-base text-white font-semibold hover:text-[#d4b2a7] transition-all duration-300 flex items-center ${location.pathname === link.path ? 'text-[#d4b2a7] tracking-wide' : ''}`}
                 >
                   {link.name}
+                  {link.hasDropdown && (
+                    <FaChevronDown className="ml-1 text-xs" />
+                  )}
                 </Link>
                 <motion.div
                   initial={{ width: 0 }}
@@ -71,6 +111,37 @@ const Header = () => {
                   className="h-0.5 bg-[#b76e79] absolute bottom-0 left-0"
                 />
                 <div className="absolute left-0 right-0 h-0.5 bg-[#b76e79] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+                
+                {/* First level dropdown menu (Categories) */}
+                {link.hasDropdown && (
+                  <div className="absolute left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="bg-white rounded-md shadow-lg py-2">
+                      {link.categories.map((category, idx) => (
+                        <div key={idx} className="px-4 py-2 hover:bg-gray-100 relative group/category">
+                          <div className="font-medium text-gray-800 flex items-center justify-between">
+                            {category.name}
+                            <FaChevronRight className="text-xs text-gray-500" />
+                          </div>
+                          
+                          {/* Second level dropdown (Subcategories) */}
+                          <div className="absolute left-full top-0 w-48 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-300">
+                            <div className="bg-white rounded-md shadow-lg py-2 ml-2">
+                              {category.subcategories.map((subcategory, subIdx) => (
+                                <div 
+                                  key={subIdx}
+                                  className="px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#b76e79] cursor-pointer"
+                                  onClick={() => handleSubcategoryClick(category.name, subcategory)}
+                                >
+                                  {subcategory}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </nav>
@@ -96,34 +167,75 @@ const Header = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: '100%' }}
                 transition={{ type: 'spring', damping: 25 }}
-                className="fixed inset-0 bg-[#404040] flex flex-col items-center justify-center space-y-8"
+                className="fixed inset-0 bg-[#404040] flex flex-col items-center justify-center space-y-6 overflow-y-auto pt-16 pb-8 px-4"
               >
-                {navLinks.map((link) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`text-2xl font-light tracking-wide ${location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'}`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
+                {navLinks.map((link, index) => (
+                  <React.Fragment key={link.path}>
+                    {link.hasDropdown ? (
+                      <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: index * 0.05 }}
+                        className="w-full max-w-xs"
+                      >
+                        <Accordion title={link.name} isActive={location.pathname === link.path}>
+                          <div className="pl-4 space-y-4 mt-2">
+                            {link.categories.map((category, catIndex) => (
+                              <Accordion 
+                                key={catIndex}
+                                title={category.name} 
+                                isActive={false}
+                                smaller
+                              >
+                                <div className="pl-4 space-y-2 mt-2">
+                                  {category.subcategories.map((subcategory, subIdx) => (
+                                    <div 
+                                      key={subIdx}
+                                      className="text-white hover:text-[#d4b2a7] cursor-pointer py-1"
+                                      onClick={() => {
+                                        handleSubcategoryClick(category.name, subcategory);
+                                        setIsOpen(false);
+                                      }}
+                                    >
+                                      {subcategory}
+                                    </div>
+                                  ))}
+                                </div>
+                              </Accordion>
+                            ))}
+                          </div>
+                        </Accordion>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: index * 0.05 }}
+                        className="w-full max-w-xs text-center"
+                      >
+                        <Link
+                          to={link.path}
+                          className={`text-xl font-light tracking-wide block py-2 ${
+                            location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'
+                          }`}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.div>
+                    )}
+                  </React.Fragment>
                 ))}
-                <div className="mt-8 space-y-4">
+                <div className="mt-6 space-y-4 w-full max-w-xs">
                   {contactInfo.map((item, index) => (
                     <motion.div
                       key={index}
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      className="flex items-center justify-center text-lg text-[#d4b2a7]"
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      className="flex items-center justify-center text-base text-[#d4b2a7] break-all"
                     >
-                      {item.icon}
+                      <span className="flex-shrink-0 mr-2">{item.icon}</span>
                       <span className="font-light">{item.text}</span>
                     </motion.div>
                   ))}
@@ -134,6 +246,40 @@ const Header = () => {
         </div>
       </div>
     </header>
+  );
+};
+
+// Accordion component for mobile menu
+const Accordion = ({ title, children, isActive = false, smaller = false }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="border-b border-[#606060]">
+      <button
+        className={`flex items-center justify-between w-full py-2 text-left ${
+          smaller ? 'text-base' : 'text-xl'
+        } ${isActive ? 'text-[#b76e79]' : 'text-white'}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className={`font-light tracking-wide ${smaller ? '' : ''}`}>{title}</span>
+        <span className="ml-2 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : '' }}>
+          <FaChevronDown className={`${smaller ? 'text-xs' : 'text-sm'}`} />
+        </span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

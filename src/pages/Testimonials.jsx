@@ -45,35 +45,6 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Video Testimonials */}
-      {videoTestimonials.length > 0 && (
-        <section className="py-16 bg-[#f5f0e8]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">Video Testimonials</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {videoTestimonials.map((testimonial, index) => (
-                <div key={index} className="bg-[#404040] rounded-sm overflow-hidden shadow-md">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <iframe 
-                      src={testimonial.video} 
-                      title={`Testimonial from ${testimonial.name}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <div className="p-6 text-white">
-                    <h3 className="text-xl font-light tracking-wide mb-1">{testimonial.name}</h3>
-                    <p className="text-[#d4b2a7] mb-2">{testimonial.role}</p>
-                    <p className="text-gray-300 leading-relaxed">{testimonial.content}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Call to Action */}
       <section className="py-16 bg-[#404040] text-white">
         <div className="container mx-auto px-4 text-center">

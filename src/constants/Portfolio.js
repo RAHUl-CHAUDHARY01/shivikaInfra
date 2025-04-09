@@ -1,12 +1,28 @@
-// constants/Portfolio.js
-
+import jpaman from '../assets/jpaman.jpeg';
+import jpaman2 from '../assets/jpaman2.jpeg';
+import jpaman3 from '../assets/jpaman3.jpeg';
+import jpaman4 from '../assets/jpaman4.jpeg';
+import jpaman5 from '../assets/jpaman5.jpeg';
+import jpaman6 from '../assets/jpaman6.jpeg';
+import jpgreens from '../assets/jpgreens.jpg';
+import jpgreens2 from '../assets/jpgreens2.jpeg';
+import jpgreens3 from '../assets/jpgreens3.jpeg';
+import jpgreens4 from '../assets/jpgreens4.jpeg';
+import jpgreens5 from '../assets/jpgreens5.jpeg';
+import jpgreens6 from '../assets/jpgreens6.jpg';
+import gg1 from '../assets/gg1.jpeg';
+import gg2 from '../assets/gg2.jpeg';
+import gg3 from '../assets/gg3.jpeg';
+import gg4 from '../assets/gg4.jpeg';
+import gg5 from '../assets/gg5.jpeg';
+import gg6 from '../assets/gg6.jpeg';
 export const portfolioData = [
     // Section 1: Web Design Projects
     {
       id: 1,
-      title: "Luxury Boutique Website",
+      title: "JP AMAN",
       description: "Responsive e-commerce platform with custom checkout experience",
-      imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&q=80",
+      imageUrl:jpaman ,
       category: "web",
       section: "section1"
     },
@@ -14,7 +30,7 @@ export const portfolioData = [
       id: 2,
       title: "Financial Advisory Firm",
       description: "Modern corporate site with interactive dashboards",
-      imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&q=80",
+      imageUrl: jpaman2,
       category: "web",
       section: "section1"
     },
@@ -22,7 +38,7 @@ export const portfolioData = [
       id: 3,
       title: "Wellness Spa Application",
       description: "Booking platform with integrated payment system",
-      imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&q=80",
+      imageUrl: jpaman3,
       category: "web",
       section: "section1"
     },
@@ -30,7 +46,7 @@ export const portfolioData = [
       id: 4,
       title: "Culinary Blog",
       description: "Recipe sharing platform with social features",
-      imageUrl: "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?auto=format&q=80",
+      imageUrl: jpaman4,
       category: "web",
       section: "section1"
     },
@@ -38,7 +54,7 @@ export const portfolioData = [
       id: 5,
       title: "Tech Startup Homepage",
       description: "Landing page with animated product demonstrations",
-      imageUrl: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&q=80",
+      imageUrl: jpaman5,
       category: "web",
       section: "section1"
     },
@@ -46,33 +62,16 @@ export const portfolioData = [
       id: 6,
       title: "Travel Experience Platform",
       description: "Interactive booking system with destination guides",
-      imageUrl: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&q=80",
+      imageUrl: jpaman6,
       category: "web",
       section: "section1"
     },
-    {
-      id: 7,
-      title: "Art Gallery Virtual Tour",
-      description: "3D exhibition space with artist profiles",
-      imageUrl: "https://images.unsplash.com/photo-1537275831583-6e4d8e9d5d85?auto=format&q=80",
-      category: "web",
-      section: "section1"
-    },
-    {
-      id: 8,
-      title: "Real Estate Portal",
-      description: "Property listings with virtual tours and neighborhood data",
-      imageUrl: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&q=80",
-      category: "web",
-      section: "section1"
-    },
-  
     // Section 2: Branding & Identity
     {
       id: 9,
       title: "Lumina Skincare",
       description: "Luxury skincare brand identity and packaging",
-      imageUrl: "https://images.unsplash.com/photo-1570554886111-e80fcca6a029?auto=format&q=80",
+      imageUrl: jpgreens,
       category: "branding",
       section: "section2"
     },
@@ -80,7 +79,7 @@ export const portfolioData = [
       id: 10,
       title: "NordVenture Capital",
       description: "Financial services brand system with custom iconography",
-      imageUrl: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&q=80",
+      imageUrl: jpgreens2,
       category: "branding",
       section: "section2"
     },
@@ -88,7 +87,7 @@ export const portfolioData = [
       id: 11,
       title: "Aria Restaurant",
       description: "Fine dining identity with menu and collateral design",
-      imageUrl: "https://images.unsplash.com/photo-1583744946564-b52d01e2e122?auto=format&q=80",
+      imageUrl:jpgreens3,
       category: "branding",
       section: "section2"
     },
@@ -96,7 +95,7 @@ export const portfolioData = [
       id: 12,
       title: "Evergreen Botanicals",
       description: "Organic product line with sustainable packaging",
-      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&q=80",
+      imageUrl: jpgreens4,
       category: "branding",
       section: "section2"
     },
@@ -104,7 +103,7 @@ export const portfolioData = [
       id: 13,
       title: "Pulse Fitness",
       description: "Gym and fitness center complete brand identity",
-      imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&q=80",
+      imageUrl: jpgreens5,
       category: "branding",
       section: "section2"
     },
@@ -112,23 +111,7 @@ export const portfolioData = [
       id: 14,
       title: "Sapphire Events",
       description: "Luxury event planning visual identity",
-      imageUrl: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&q=80",
-      category: "branding",
-      section: "section2"
-    },
-    {
-      id: 15,
-      title: "Urban Roasters",
-      description: "Coffee shop branding with packaging design",
-      imageUrl: "https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&q=80",
-      category: "branding",
-      section: "section2"
-    },
-    {
-      id: 16,
-      title: "Solstice Apparel",
-      description: "Fashion brand identity with seasonal campaigns",
-      imageUrl: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&q=80",
+      imageUrl: jpgreens6,
       category: "branding",
       section: "section2"
     },
@@ -138,7 +121,7 @@ export const portfolioData = [
       id: 17,
       title: "Essence Magazine Editorial",
       description: "Fashion spread for summer collection feature",
-      imageUrl: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&q=80",
+      imageUrl: gg1,
       category: "photography",
       section: "section3"
     },
@@ -146,7 +129,7 @@ export const portfolioData = [
       id: 18,
       title: "Architectural Digest Feature",
       description: "Modern homes photography series",
-      imageUrl: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&q=80",
+      imageUrl: gg2,
       category: "photography",
       section: "section3"
     },
@@ -154,7 +137,7 @@ export const portfolioData = [
       id: 19,
       title: "Culinary Arts Spotlight",
       description: "Food photography for high-end restaurant",
-      imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&q=80",
+      imageUrl: gg3,
       category: "photography",
       section: "section3"
     },
@@ -162,7 +145,7 @@ export const portfolioData = [
       id: 20,
       title: "Product Catalog Shoot",
       description: "Minimalist product photography for luxury goods",
-      imageUrl: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&q=80",
+      imageUrl:gg4,
       category: "photography",
       section: "section3"
     },
@@ -170,7 +153,7 @@ export const portfolioData = [
       id: 21,
       title: "Travel Documentary Series",
       description: "Environmental portraiture across global destinations",
-      imageUrl: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&q=80",
+      imageUrl: gg5,
       category: "photography",
       section: "section3"
     },
@@ -178,23 +161,7 @@ export const portfolioData = [
       id: 22,
       title: "Cosmetics Campaign",
       description: "Beauty product photography with models",
-      imageUrl: "https://images.unsplash.com/photo-1591130911944-2cddce5f9975?auto=format&q=80",
-      category: "photography",
-      section: "section3"
-    },
-    {
-      id: 23,
-      title: "Wedding Portfolio",
-      description: "Candid and formal wedding photography collection",
-      imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&q=80",
-      category: "photography",
-      section: "section3"
-    },
-    {
-      id: 24,
-      title: "Urban Landscapes",
-      description: "City architecture and street life series",
-      imageUrl: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&q=80",
+      imageUrl: gg6,
       category: "photography",
       section: "section3"
     }

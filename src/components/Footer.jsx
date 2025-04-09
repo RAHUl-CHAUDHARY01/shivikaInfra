@@ -16,7 +16,7 @@ const Footer = () => {
               <Link to="#" className="text-white hover:text-[#b76e79] transition-all duration-300"><FaFacebook size={20} /></Link>
               <Link to="#" className="text-white hover:text-[#b76e79] transition-all duration-300"><FaTwitter size={20} /></Link>
               <Link to="#" className="text-white hover:text-[#b76e79] transition-all duration-300"><FaLinkedin size={20} /></Link>
-              <Link to="#" className="text-white hover:text-[#b76e79] transition-all duration-300"><FaInstagram size={20} /></Link>
+              <Link to="https://www.instagram.com/shivikainfrasolutions001/" className="text-white hover:text-[#b76e79] transition-all duration-300"><FaInstagram size={20} /></Link>
             </div>
           </div>
 
@@ -44,7 +44,7 @@ const Footer = () => {
             <ul className="space-y-2 text-[#f0e6e4]">
               <li>Noida/Greater Noida Office</li>
               <li><Link to="tel:+919899360001" className="hover:text-[#b76e79] transition-all duration-300">+91 989 93 600 01</Link></li>
-              <li><Link to="mailto:shivikainfrasolutions001@gmail.com" className="hover:text-[#b76e79] transition-all duration-300">shivikainfrasolutions001@gmail.com</Link></li>
+              <li><Link to="mailto:shivikainfrasolutions001@gmail.com" className="hover:text-[#b76e79] transition-all duration-300">Mail us</Link></li>
             </ul>
           </div>
         </div>

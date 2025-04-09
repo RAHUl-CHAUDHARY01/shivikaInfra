@@ -1,125 +1,237 @@
-import { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
-import { motion } from 'framer-motion';
-import React from 'react';
+// components/ContactForm.jsx
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 const ContactForm = () => {
-  const form = useRef();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID', 
-      'YOUR_TEMPLATE_ID', 
-      form.current, 
-      'YOUR_PUBLIC_KEY'
-    )
-    .then((result) => {
-      console.log(result.text);
-      setSubmitStatus('success');
-      form.current.reset();
-    }, (error) => {
-      console.log(error.text);
-      setSubmitStatus('error');
-    })
-    .finally(() => {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
+  const location = useLocation();
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  
+  // Validation state
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  
+  // Site owner's WhatsApp number (include country code without +)
+  const ownerWhatsAppNumber = '919899360001';
+  
+  // Parse query parameters when component mounts or URL changes
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const category = queryParams.get('category');
+    const subcategory = queryParams.get('subcategory');
+    
+    // If both category and subcategory are present, set the subject
+    if (category && subcategory) {
+      setFormData(prevState => ({
+        ...prevState,
+        subject: `${category} - ${subcategory}`
+      }));
+    }
+    // If only subcategory is present (backward compatibility)
+    else if (queryParams.get('service')) {
+      setFormData(prevState => ({
+        ...prevState,
+        subject: queryParams.get('service')
+      }));
+    }
+  }, [location.search]);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
     });
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
-
+  
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+    
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (validateForm()) {
+      // Format the message for WhatsApp
+      const whatsappMessage = `
+*New Inquiry from Shivika Infra Website*
+---------------------------
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+${formData.subject ? `*Subject:* ${formData.subject}\n` : ''}
+*Message:*
+${formData.message}
+---------------------------
+`;
+      
+      // Create WhatsApp URL with encoded message
+      const whatsappUrl = `https://wa.me/${ownerWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, '_blank');
+      
+      // Reset form and show success message
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    }
+  };
+  
   return (
-    <motion.form 
-      ref={form}
-      onSubmit={sendEmail}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="space-y-6"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Full Name *
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="user_name"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-rose-gold focus:border-rose-gold"
-          />
+    <div>
+      {submitted && (
+        <div className="bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-6">
+          <p>Thank you for your message! We've opened WhatsApp for you to send your inquiry directly to our team.</p>
         </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="user_email"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-rose-gold focus:border-rose-gold"
-          />
+      )}
+      
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label htmlFor="name" className="block text-[#505050] font-light mb-2">
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+                errors.name ? 'border-red-500' : 'border-gray-300'
+              }`}
+              placeholder="Your full name"
+            />
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+          </div>
+          
+          <div>
+            <label htmlFor="email" className="block text-[#505050] font-light mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+                errors.email ? 'border-red-500' : 'border-gray-300'
+              }`}
+              placeholder="your@email.com"
+            />
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          </div>
         </div>
-      </div>
-      <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-          Phone Number
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="user_phone"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-rose-gold focus:border-rose-gold"
-        />
-      </div>
-      <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-          Subject *
-        </label>
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-rose-gold focus:border-rose-gold"
-        />
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message *
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-rose-gold focus:border-rose-gold"
-        ></textarea>
-      </div>
-      <div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label htmlFor="phone" className="block text-[#505050] font-light mb-2">
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+                errors.phone ? 'border-red-500' : 'border-gray-300'
+              }`}
+              placeholder="Your phone number"
+            />
+            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+          </div>
+          
+          <div>
+            <label htmlFor="subject" className="block text-[#505050] font-light mb-2">
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none"
+              placeholder="What is this regarding?"
+            />
+          </div>
+        </div>
+        
+        <div className="mb-6">
+          <label htmlFor="message" className="block text-[#505050] font-light mb-2">
+            Message *
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            value={formData.message}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+              errors.message ? 'border-red-500' : 'border-gray-300'
+            }`}
+            placeholder="Tell us about your project or inquiry"
+          ></textarea>
+          {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+        </div>
+        
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="bg-rose-gold text-black font-semibold px-6 py-3 rounded-md hover:bg-rose-gold-dark transition disabled:opacity-50"
+          className="bg-[#b76e79] hover:bg-[#a65c67] text-white py-3 px-6 rounded-sm transition-all duration-300"
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          Send Message
         </button>
-      </div>
-      {submitStatus === 'success' && (
-        <div className="p-4 bg-green-100 text-green-700 rounded-md">
-          Thank you! Your message has been sent successfully.
-        </div>
-      )}
-      {submitStatus === 'error' && (
-        <div className="p-4 bg-red-100 text-red-700 rounded-md">
-          Something went wrong. Please try again later.
-        </div>
-      )}
-    </motion.form>
+      </form>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import gaurcity from '../assets/gaurcity.webp';
 import eledico from '../assets/eledico.webp';
 import royalcity from '../assets/royalcity.webp';
 import { Link } from 'react-router-dom';
+import ServiceCard from '../components/ServiceCard';
 
 const Services = () => {
   const locations = [
@@ -74,8 +75,7 @@ const Services = () => {
           {serviceCategories.map((category, catIndex) => (
             <div key={catIndex} className="mb-20">
               <motion.h2 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+               
                 viewport={{ once: true }}
                 className="text-3xl font-light mb-12 text-center text-[#505050] relative inline-block mx-auto tracking-wide"
               >
@@ -85,27 +85,28 @@ const Services = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.services.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -5 }}
-                    className="bg-white border border-gray-100 rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-all"
-                  >
-                    <div className="p-6">
-                      <div className="text-4xl mb-4 text-[#b76e79]">{service.icon}</div>
-                      <h3 className="text-xl font-medium mb-3 text-[#505050]">{service.title}</h3>
-                      <p className="text-[#5a5a5a] mb-4 leading-relaxed">{service.description}</p>
-                      <div className="flex items-center text-sm text-[#9a9a9a]">
-                        <svg className="w-4 h-4 mr-1 text-[#b76e79]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                        Available in: Gaur City, Eladico, Royal City
-                      </div>
-                    </div>
-                  </motion.div>
+                  // <motion.div
+                  //   key={index}
+                  //   initial={{ opacity: 0, y: 50 }}
+                  //   whileInView={{ opacity: 1, y: 0 }}
+                  //   transition={{ delay: index * 0.1 }}
+                  //   viewport={{ once: true }}
+                  //   whileHover={{ y: -5 }}
+                  //   className="bg-white border border-gray-100 rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-all"
+                  // >
+                  //   <div className="p-6">
+                  //     <div className="text-4xl mb-4 text-[#b76e79]">{service.icon}</div>
+                  //     <h3 className="text-xl font-medium mb-3 text-[#505050]">{service.title}</h3>
+                  //     <p className="text-[#5a5a5a] mb-4 leading-relaxed">{service.description}</p>
+                  //     <div className="flex items-center text-sm text-[#9a9a9a]">
+                  //       <svg className="w-4 h-4 mr-1 text-[#b76e79]" fill="currentColor" viewBox="0 0 20 20">
+                  //         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  //       </svg>
+                  //       Available in: Gaur City, Eladico, Royal City
+                  //     </div>
+                  //   </div>
+                  // </motion.div>
+                  <ServiceCard key={index} service={service} />
                 ))}
               </div>
             </div>

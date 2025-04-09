@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { portfolioData } from '../constants/Portfolio'; 
 import office from '../assets/office.jpg';
+import { i } from 'framer-motion/client';
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   
@@ -34,9 +35,6 @@ const Portfolio = () => {
           <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">
             JP Aman Projects
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 font-light tracking-wide">
-            Content of jp aman
-          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {section1Items.map((item, index) => (
               <div 
@@ -45,15 +43,11 @@ const Portfolio = () => {
                 style={{ height: '280px' }}
               >
                 <img 
-                  src={""} 
+                  src={item.imageUrl} 
                   alt={item.title} 
                   className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                   onError={handleImageError}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-90 transition-all duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-white text-lg font-semibold" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{item.title}</h3>
-                  <p className="text-white text-sm mt-2 opacity-80">{item.description}</p>
-                </div>
               </div>
             ))}
           </div>
@@ -65,9 +59,6 @@ const Portfolio = () => {
           <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">
             JP Greens Project
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-           content
-          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {section2Items.map((item, index) => (
               <div 
@@ -76,15 +67,11 @@ const Portfolio = () => {
                 style={{ height: '280px' }}
               >
                 <img 
-                  src={""} 
+                  src={item.imageUrl} 
                   alt={item.title} 
                   className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                   onError={handleImageError}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-90 transition-all duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-white text-lg font-semibold" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{item.title}</h3>
-                  <p className="text-white text-sm mt-2 opacity-80">{item.description}</p>
-                </div>
               </div>
             ))}
           </div>
@@ -96,9 +83,6 @@ const Portfolio = () => {
           <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">
             Godrej Golf Projects
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-           content
-          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {section3Items.map((item, index) => (
               <div 
@@ -107,15 +91,11 @@ const Portfolio = () => {
                 style={{ height: '280px' }}
               >
                 <img 
-                  src={""} 
+                  src={item.imageUrl} 
                   alt={item.title} 
                   className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                   onError={handleImageError}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-90 transition-all duration-300 flex flex-col justify-end p-6">
-                  <h3 className="text-white text-lg font-semibold" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{item.title}</h3>
-                  <p className="text-white text-sm mt-2 opacity-80">{item.description}</p>
-                </div>
               </div>
             ))}
           </div>

@@ -21,7 +21,7 @@ const About = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl max-w-2xl mx-auto text-[#d4b2a7]"
           >
-            Trusted Infrastructure Consultancy Since 2010
+            Welcome to Shivika Infra – where your vision becomes our mission.
           </motion.p>
         </div>
       </section>
