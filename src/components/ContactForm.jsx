@@ -19,7 +19,7 @@ const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   
   // Site owner's WhatsApp number (include country code without +)
-  const ownerWhatsAppNumber = '919899360001';
+  const ownerWhatsAppNumber = '9198993600';
   
   // Parse query parameters when component mounts or URL changes
   useEffect(() => {
