@@ -8,6 +8,7 @@ import Testimonials from '../pages/Testimonials';
 import Contact from '../pages/Contact';
 import React from 'react';
 import Portfolio from '../pages/Portfolio';
+import PropertyShowcase from './Sobha';
 const AnimatedRoutes = () => {
   // const location = useLocation();
   // location={location} key={location.pathname}
@@ -21,6 +22,7 @@ const AnimatedRoutes = () => {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path='/property' element={<PropertyShowcase/>}/>
       </Routes>
     </AnimatePresence>
   );

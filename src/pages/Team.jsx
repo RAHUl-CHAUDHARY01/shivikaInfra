@@ -22,7 +22,10 @@ const Team = () => {
   return (
     <div className="flex flex-col font-sans">
       {/* Hero Section */}
-      <section className="bg-[#404040] text-white py-20">
+      <section className="bg-[#404040] text-white py-20"   style={{
+    backgroundColor: "#2e2d30",
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
+  }}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-light mb-4 tracking-wide">Our Team</h1>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto text-[#d4b2a7]">

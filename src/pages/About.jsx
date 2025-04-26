@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import office from '../assets/office.jpg';
-
+import pattern from '../assets/pattern.png';
 const About = () => {
   return (
     <div className="flex flex-col font-sans">
       {/* Hero Section */}
-      <section className="bg-[#404040] text-white py-20">
+      <section
+  className="text-white py-20"
+  style={{
+    backgroundColor: "#2e2d30",
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
+  }}
+>
+
         <div className="container mx-auto px-4 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -19,7 +26,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl max-w-2xl mx-auto text-[#d4b2a7]"
+            className="text-xl md:text-3xl max-w-2xl mx-auto text-[#d4b2a7]"
           >
             Welcome to Shivika Infra – where your vision becomes our mission.
           </motion.p>
