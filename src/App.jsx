@@ -4,10 +4,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';
 import WhatsAppButton from './components/Whatsapp';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <div className="flex flex-col min-h-screen bg-white">
         <Header />
         <main className="flex-grow">

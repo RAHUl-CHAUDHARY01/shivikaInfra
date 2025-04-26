@@ -66,7 +66,9 @@ const Footer = () => {
             </section>
             
             {/* Map Section */}
-            <section className="py-16 bg-[#f5f0e8]">
+            <section className="py-16 bg-[#f5f0e8]"  style={{
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
+  }}>
               <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-light tracking-wide mb-8 text-center text-[#505050]">Our Location</h2>
                 <div className="rounded-sm overflow-hidden shadow-md">

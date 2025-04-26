@@ -14,7 +14,7 @@ const ServiceCard = ({ service }) => {
           <span className="text-2xl">{service.icon}</span>
         </div>
       </div>
-      <h3 className="text-xl font-bold mb-2 text-black">{service.title}</h3>
+      <h3 className="text-xl mb-2 text-black font-[300]">{service.title}</h3>
       <p className="text-gray-600">{service.description}</p>
       {/* <Link 
         to="/services" 

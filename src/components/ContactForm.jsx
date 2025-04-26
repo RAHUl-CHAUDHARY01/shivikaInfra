@@ -144,7 +144,7 @@ ${formData.message}
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+              className={`text-black w-full px-4 py-2 border rounded-sm ${
                 errors.name ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="Your full name"
@@ -162,7 +162,7 @@ ${formData.message}
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+              className={`text-black w-full px-4 py-2 border rounded-sm focus:outline-none ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="your@email.com"
@@ -182,7 +182,7 @@ ${formData.message}
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+              className={` text-black w-full px-4 py-2 border rounded-sm focus:outline-none ${
                 errors.phone ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="Your phone number"
@@ -200,7 +200,7 @@ ${formData.message}
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none"
+              className=" text-black w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none"
               placeholder="What is this regarding?"
             />
           </div>
@@ -216,7 +216,7 @@ ${formData.message}
             rows="5"
             value={formData.message}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-sm focus:outline-none ${
+            className={`text-black w-full px-4 py-2 border rounded-sm focus:outline-none ${
               errors.message ? 'border-red-500' : 'border-gray-300'
             }`}
             placeholder="Tell us about your project or inquiry"

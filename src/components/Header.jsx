@@ -5,6 +5,10 @@ import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown, FaChevronRight } from 'reac
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
+// Import the property data
+import { propertiesData } from '../constants/propertiesData' // Adjust the path as needed
+import PropertyShowcase from './Sobha';
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -23,6 +27,15 @@ const Header = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Group properties by type (ongoing or upcoming)
+  const ongoingProjects = Object.values(propertiesData).filter(property => 
+    property.status === 'ongoing' || !property.status // Default to ongoing if status not specified
+  );
+  
+  const upcomingProjects = Object.values(propertiesData).filter(property => 
+    property.status === 'upcoming'
+  );
 
   const navLinks = [
     { path: '/', name: 'Home' },
@@ -50,11 +63,15 @@ const Header = () => {
         },
         {
           name: 'Upcoming Project',
-          subcategories : ['Project-1', 'Project-2', 'Project-3']
+          subcategories: upcomingProjects.map(property => property.name),
+          isPropertyList: true,
+          properties: upcomingProjects
         },
         {
           name: 'Ongoing Project',
-          subcategories:['Project-1', 'Project-2', 'Project-3']
+          subcategories: ongoingProjects.map(property => property.name),
+          isPropertyList: true,
+          properties: ongoingProjects
         }
       ]
     },
@@ -69,9 +86,22 @@ const Header = () => {
     { icon: <MdEmail className="mr-2" />, text: 'shivikainfrasolutions001@gmail.com' },
   ];
 
-  const handleSubcategoryClick = (category, subcategory) => {
-    // Navigate to contact page with subcategory as a query parameter
-    navigate(`/contact?category=${encodeURIComponent(category)}&subcategory=${encodeURIComponent(subcategory)}`);
+  const handleSubcategoryClick = (category, subcategory, isPropertyItem = false, propertyId = null) => {
+    if (isPropertyItem && propertyId) {
+      // Navigate to property detail page
+      console.log(propertyId);
+        const propertyData = propertiesData[propertyId];
+      navigate(`/property/${propertyId}`);
+     return  <PropertyShowcase propertyData={propertyData} />
+    } else {
+      // Navigate to contact page with subcategory as a query parameter (original behavior)
+      navigate(`/contact?category=${encodeURIComponent(category)}&subcategory=${encodeURIComponent(subcategory)}`);
+    }
+    
+    // Close mobile menu if open
+    if (isOpen) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -124,17 +154,41 @@ const Header = () => {
                           </div>
                           
                           {/* Second level dropdown (Subcategories) */}
-                          <div className="absolute left-full top-0 w-48 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-300">
+                          <div className="absolute left-full top-0 w-56 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-300">
                             <div className="bg-white rounded-md shadow-lg py-2 ml-2">
-                              {category.subcategories.map((subcategory, subIdx) => (
-                                <div 
-                                  key={subIdx}
-                                  className="px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#b76e79] cursor-pointer"
-                                  onClick={() => handleSubcategoryClick(category.name, subcategory)}
-                                >
-                                  {subcategory}
-                                </div>
-                              ))}
+                              {category.subcategories.map((subcategory, subIdx) => {
+                                // Find the matching property if this is a property list
+                                const propertyItem = category.isPropertyList 
+                                  ? category.properties.find(p => p.name === subcategory) 
+                                  : null;
+                                
+                                return (
+                                  <div 
+                                    key={subIdx}
+                                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#b76e79] cursor-pointer"
+                                    onClick={() => handleSubcategoryClick(
+                                      category.name, 
+                                      subcategory, 
+                                      category.isPropertyList,
+                                      propertyItem?.id
+                                    )}
+                                  >
+                                    <div className="flex items-center justify-between">
+                                      <span>{subcategory}</span>
+                                      {propertyItem && (
+                                        <span className="text-sm text-amber-600 font-medium">
+                                          {propertyItem.priceRange}
+                                        </span>
+                                      )}
+                                    </div>
+                                    {propertyItem && (
+                                      <div className="text-xs text-gray-500 mt-1">
+                                        {propertyItem.location}
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })}
                             </div>
                           </div>
                         </div>
@@ -188,18 +242,39 @@ const Header = () => {
                                 smaller
                               >
                                 <div className="pl-4 space-y-2 mt-2">
-                                  {category.subcategories.map((subcategory, subIdx) => (
-                                    <div 
-                                      key={subIdx}
-                                      className="text-white hover:text-[#d4b2a7] cursor-pointer py-1"
-                                      onClick={() => {
-                                        handleSubcategoryClick(category.name, subcategory);
-                                        setIsOpen(false);
-                                      }}
-                                    >
-                                      {subcategory}
-                                    </div>
-                                  ))}
+                                  {category.subcategories.map((subcategory, subIdx) => {
+                                    // Find the matching property if this is a property list
+                                    const propertyItem = category.isPropertyList 
+                                      ? category.properties.find(p => p.name === subcategory) 
+                                      : null;
+                                    
+                                    return (
+                                      <div 
+                                        key={subIdx}
+                                        className="text-white hover:text-[#d4b2a7] cursor-pointer py-1"
+                                        onClick={() => handleSubcategoryClick(
+                                          category.name, 
+                                          subcategory, 
+                                          category.isPropertyList,
+                                          propertyItem?.id
+                                        )}
+                                      >
+                                        <div className="flex items-center justify-between">
+                                          <span>{subcategory}</span>
+                                          {propertyItem && (
+                                            <span className="text-sm text-amber-400 font-medium">
+                                              {propertyItem.priceRange}
+                                            </span>
+                                          )}
+                                        </div>
+                                        {propertyItem && (
+                                          <div className="text-xs text-gray-400 mt-1">
+                                            {propertyItem.location}
+                                          </div>
+                                        )}
+                                      </div>
+                                    );
+                                  })}
                                 </div>
                               </Accordion>
                             ))}
