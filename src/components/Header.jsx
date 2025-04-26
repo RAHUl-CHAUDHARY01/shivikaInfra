@@ -175,11 +175,7 @@ const Header = () => {
                                   >
                                     <div className="flex items-center justify-between">
                                       <span>{subcategory}</span>
-                                      {propertyItem && (
-                                        <span className="text-sm text-amber-600 font-medium">
-                                          {propertyItem.priceRange}
-                                        </span>
-                                      )}
+                                
                                     </div>
                                     {propertyItem && (
                                       <div className="text-xs text-gray-500 mt-1">
