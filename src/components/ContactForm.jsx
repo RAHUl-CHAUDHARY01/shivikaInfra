@@ -90,7 +90,7 @@ const ContactForm = () => {
     if (validateForm()) {
       // Format the message for WhatsApp
       const whatsappMessage = `
-*New Inquiry from Shivika Infra Website*
+*New Inquiry for Shivika Infra Website*
 ---------------------------
 *Name:* ${formData.name}
 *Email:* ${formData.email}
