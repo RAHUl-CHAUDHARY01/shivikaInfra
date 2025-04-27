@@ -2,7 +2,7 @@
 // This file contains all your property data
 
 import sobhaBg from '../assets/bg.png';
-import sobhaInterior from '../assets/jpaman2.jpeg';
+import sobhaInterior from '../assets/hero1.jpg';
 // Import other property images as needed
 
 export const propertiesData = {
