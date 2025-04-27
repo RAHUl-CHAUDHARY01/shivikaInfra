@@ -48,7 +48,7 @@ export default function PropertyShowcase({ propertyData }) {
         </button>
       </div>
       
-      <div className="w-[90vw] h-[200px] mx-4 md:h-[500px] md:w-3/5 my-auto md:mx-auto mr-4">
+      <div className="w-[90vw] h-[200px] mx-4 md:h-[500px] md:w-3/5 pb-4 md:pb-0 my-auto md:mx-auto mr-4">
         <img
           src={propertyData.images.exterior}
           alt={propertyData.name}
