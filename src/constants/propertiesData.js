@@ -1,8 +1,9 @@
 // src/data/propertiesData.js
 // This file contains all your property data
 
-import sobhaBg from '../assets/bg.png';
-import sobhaInterior from '../assets/hero1.jpg';
+import sobhaBg from '../assets/sobha.jpg';
+import sobhaInterior from '../assets/sobha2.jpg';
+import godrej from '../assets/godrej.webp';
 // Import other property images as needed
 
 export const propertiesData = {
@@ -16,7 +17,7 @@ export const propertiesData = {
     priceNote: "Onwards",
     apartmentTypes: ["2", "3"],
     description: "Luxury Apartments",
-    status: "ongoing", // Add status field
+    status: "upcoming", // Add status field
     features: [
       "2 STUNNING TOWERS",
       "SPREAD IN 3.5 ACRES",
@@ -46,123 +47,111 @@ export const propertiesData = {
     }
   },
   
-  // Additional property 1 (marked as ongoing)
-  "godrej-woodland": {
-    id: "godrej-woodland",
-    name: "GODREJ WOODLAND",
-    developer: "Godrej Properties",
-    location: "Sector 43, Gurugram",
-    priceRange: "₹2.1 Cr*",
-    priceNote: "Onwards",
-    apartmentTypes: ["3", "4"],
-    description: "Premium Residences",
-    status: "ongoing", // Add status field
-    features: [
-      "4 ELEGANT TOWERS",
-      "SPREAD IN 5 ACRES",
-      "READY TO MOVE"
-    ],
-    highlights: [
-      "Spread Across 5 Acres of Lush Greenery",
-      "4 Elegant Towers",
-      "Ground + 25 Floors",
-      "Premium Clubhouse & Fitness Center",
-      "Temperature Controlled Swimming Pool",
-      "Landscaped Gardens & Parks",
-      "Smart Home Technology",
-      "Contemporary Architecture",
-      "Spacious Apartments with Premium Finishes",
-      "Prime Location in Gurugram",
-      "Easy Access to Expressway"
-    ],
-    overview: [
-      "Godrej Woodland offers an exclusive living experience in the heart of Gurugram. The project features spacious 3 & 4 BHK apartments designed for modern living with premium finishes and smart home technology.",
-      "The development boasts world-class amenities including a state-of-the-art clubhouse, temperature-controlled swimming pool, fitness center, and landscaped gardens. The community is designed to promote an active and healthy lifestyle with dedicated spaces for sports and recreational activities.",
-      "Located in Sector 43, Godrej Woodland enjoys excellent connectivity to major business districts, educational institutions, healthcare facilities, and entertainment hubs. The project is just minutes away from the Golf Course Road and provides easy access to the Delhi-Gurugram Expressway."
-    ],
-    images: {
-      exterior: sobhaBg, // Replace with actual images
-      interior: sobhaInterior // Replace with actual images
+    "jaypee-greens": {
+      id: "jaypee-greens",
+      name: "JAYPEE GREENS WISH TOWN",
+      developer: "Jaypee Greens",
+      location: "Sectors 128/133/134, Noida",
+      priceRange: "₹80 Lakhs – ₹2+ Crore",
+      priceNote: "Various apartment types, villas, and plots. Pricing On Request for many units.",
+      apartmentTypes: ["2", "3", "4", "Villas", "Plots", "Penthouses"],
+      description: "Integrated township with luxury apartments, villas, and plots, set amidst green landscapes and golf courses.",
+      status: "ongoing",
+      features: [
+        "1063 Acres Township",
+        "Premium Apartments, Villas, and Plots",
+        "Championship 18-Hole Golf Course",
+        "Multiple Clubhouses & Sport Complexes",
+        "Gated, Secure Community",
+        "Retail & Entertainment Zones"
+      ],
+      highlights: [
+        "Excellent Connectivity to Noida, South & Central Delhi",
+        "Podium-style Green Living",
+        "Golf & Lake-facing Residences Available",
+        "International Standard Sports Facilities",
+        "Award-winning Landscaping & Architecture"
+      ],
+      overview: [
+        "Jaypee Greens Wish Town in Noida offers ultra-luxurious living with sprawling golf course views, a self-sustained ecosystem, and high-end residential, commercial, and recreational facilities.",
+        "Residents enjoy direct access to renowned schools, hospitals, offices, and lifestyle amenities—all within the township.",
+        "Its central location means everything in NCR is within convenient reach, making it ideal for families, professionals, and golf lovers alike."
+      ],
+      images: {
+        exterior: "https://ext.same-assets.com/2137701565/1703796928.jpeg",
+        interior: "https://ext.same-assets.com/2137701565/3073642977.png"
+      }
+    },
+    "the-hemisphere": {
+      id: "the-hemisphere",
+      name: "THE HEMISPHERE",
+      developer: "Saya Group (The Hemisphere)",
+      location: "Sector 27, Greater Noida",
+      priceRange: "Contact for Price",
+      priceNote: "Best Price On Request for Villas & Suites",
+      apartmentTypes: ["3", "4", "5 (Villas)", "2", "3 (Suites)"],
+      description: "Ultra-luxury villas and premium apartments/suites set in a 93-acre golf-themed township.",
+      status: "upcoming",
+      features: [
+        "93 Acre Master-planned Community",
+        "400 Villas · 450 Apartments/Suites",
+        "State-of-the-Art Clubhouse",
+        "Lush Golf Greens",
+        "Metro at Zero Distance",
+        "125,000+ sq.ft. Commercial Space"
+      ],
+      highlights: [
+        "Golf-Facing Residences & Villas",
+        "0 km from Delta 1 Metro Station",
+        "3km from Pari Chowk",
+        "5km from Yamuna Expressway",
+        "30km from Jewar Airport",
+        "Eco-friendly Lifestyle, Security, Modern Amenities"
+      ],
+      overview: [
+        "The Hemisphere is Greater Noida’s landmark luxury address, offering spacious villas and apartments in an idyllic golf oasis, designed for the elite lifestyle.",
+        "Designed around seamless access to metro, airport, and expressways, the community emphasizes green, healthy living with high-end amenities for families and investors alike.",
+        "Enjoy exclusive leisure facilities, golf views, and a secure, self-contained township crafted for peace and prestige."
+      ],
+      images: {
+        exterior: "https://ext.same-assets.com/2924979194/4211305489.jpeg",
+        interior: "https://ext.same-assets.com/2924979194/4211305489.jpeg"
+      }
+    },
+    "godrej-golf-links": {
+      id: "godrej-golf-links",
+      name: "GODREJ GOLF LINKS",
+      developer: "Godrej Properties",
+      location: "REP-1, Sector 27, Greater Noida, Uttar Pradesh",
+      priceRange: "₹3.5 Cr* onwards",
+      priceNote: "4+ BHK Villas. GST, AMC, IFMS & other charges additional.",
+      apartmentTypes: ["4+", "Villa"],
+      description: "Premium golf-side villas and villaments in Greater Noida’s flagship luxury community.",
+      status: "ongoing",
+      features: [
+        "Luxury Villas with Golf Views",
+        "Clustered Low-rise Flats & Villas",
+        "Possession: March 2024 (for some units)",
+        "Expansive 9-Hole Golf Course",
+        "Swimming Centre with Indoor Heated Pool",
+        "Drive-in Cinema",
+        "Premium Concierge Services"
+      ],
+      highlights: [
+        "Central 9-Hole Golf Course",
+        "Balcony Views · Natural Greens",
+        "Ultra-premium Club Amenities",
+        "Excellent Connectivity via Noida-Greater Noida Expressway",
+        "Poised for Immense Commercial Growth",
+        "Modern Urban Infrastructure"
+      ],
+      overview: [
+        "Godrej Golf Links offers stately luxury residences and villas designed for an active, green lifestyle in Greater Noida. Each cluster is anchored by golf-side living, providing world-class recreational experiences and eco-sensitive landscapes.",
+        "The project is strategically located for both urban convenience and investment growth, with excellent access to expressways, business hubs, and the broader NCR."
+      ],
+      images: {
+        exterior: godrej,
+        interior: "https://ext.same-assets.com/1232399317/3080361824.webp"
+      }
     }
-  },
-  
-  // Additional property 2 (marked as upcoming)
-  "dlf-garden-city": {
-    id: "dlf-garden-city",
-    name: "DLF GARDEN CITY",
-    developer: "DLF Limited",
-    location: "Sector 92, New Gurugram",
-    priceRange: "₹1.8 Cr*",
-    priceNote: "Onwards",
-    apartmentTypes: ["2", "3", "4"],
-    description: "Garden-themed Residences",
-    status: "upcoming", // Mark as upcoming
-    features: [
-      "6 RESIDENTIAL TOWERS",
-      "SPREAD IN 8.5 ACRES",
-      "70% OPEN SPACES"
-    ],
-    highlights: [
-      "70% Open Green Spaces",
-      "6 Residential Towers",
-      "Ground + 28 Floors",
-      "Multi-tier Security System",
-      "Resort-style Clubhouse",
-      "Olympic-sized Swimming Pool",
-      "Themed Gardens & Walking Trails",
-      "Indoor Sports Complex",
-      "Kids' Play Areas & Learning Zones",
-      "Strategically Located in New Gurugram",
-      "Close to Upcoming Metro Station"
-    ],
-    overview: [
-      "DLF Garden City brings a refreshing living experience with its garden-themed residences in New Gurugram. The project offers 2, 3 & 4 BHK apartments surrounded by lush greenery and themed gardens, creating a serene environment away from the urban chaos.",
-      "The development features world-class amenities including a resort-style clubhouse, Olympic-sized swimming pool, indoor sports complex, and dedicated areas for various activities. With 70% of the area dedicated to open spaces, residents can enjoy a healthy and balanced lifestyle.",
-      "Located in Sector 92, New Gurugram, DLF Garden City enjoys excellent connectivity to major highways, commercial centers, educational institutions, and healthcare facilities. The upcoming metro station near the project will further enhance its accessibility."
-    ],
-    images: {
-      exterior: sobhaBg, // Replace with actual images
-      interior: sobhaInterior // Replace with actual images
-    }
-  },
-  
-  // Additional property 3 (marked as upcoming)
-  "prestige-lakeside": {
-    id: "prestige-lakeside",
-    name: "PRESTIGE LAKESIDE",
-    developer: "Prestige Group",
-    location: "Whitefield, Bangalore",
-    priceRange: "₹1.2 Cr*",
-    priceNote: "Onwards",
-    apartmentTypes: ["1", "2", "3"],
-    description: "Lakefront Luxury Apartments",
-    status: "upcoming", // Mark as upcoming
-    features: [
-      "LAKEFRONT LIVING",
-      "12 RESIDENTIAL BLOCKS",
-      "80+ AMENITIES"
-    ],
-    highlights: [
-      "Scenic Lake Views",
-      "12 Residential Blocks",
-      "Ground + 20 Floors",
-      "80+ World-class Amenities",
-      "2 Clubhouses with Indoor & Outdoor Facilities",
-      "Multiple Swimming Pools",
-      "Amphitheater & Party Lawns",
-      "Sports Facilities & Courts",
-      "Children's Play Areas & Creche",
-      "Prime Location in Whitefield",
-      "Close to IT Parks & Business Districts"
-    ],
-    overview: [
-      "Prestige Lakeside offers a unique lakefront living experience in the thriving neighborhood of Whitefield, Bangalore. The project features 1, 2 & 3 BHK apartments designed with contemporary architecture and premium specifications.",
-      "The development boasts over 80 amenities spread across the property, including two clubhouses, multiple swimming pools, sports facilities, an amphitheater, and party lawns. The carefully planned community ensures that residents have access to everything they need for a comfortable and luxurious lifestyle.",
-      "Located in Whitefield, Prestige Lakeside enjoys excellent connectivity to major IT parks, business districts, educational institutions, healthcare facilities, and shopping centers. The upcoming metro line will further enhance the connectivity of this premium residential address."
-    ],
-    images: {
-      exterior: sobhaBg, // Replace with actual images
-      interior: sobhaInterior // Replace with actual images
-    }
-  }
-};
+  };

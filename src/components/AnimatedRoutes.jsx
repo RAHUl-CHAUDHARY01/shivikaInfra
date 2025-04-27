@@ -49,7 +49,9 @@ const AnimatedRoutes = () => {
         <Route path='/property/prestige-lakeside' element={<PropertyShowcase propertyData={propertiesData['prestige-lakeside']} />} />
 
         <Route path='/property/sobha-sector-36' element={<PropertyShowcase propertyData={propertiesData['sobha-sector-36']} />} />
-        <Route path='/property/godrej-woodland' element={<PropertyShowcase propertyData={propertiesData['godrej-woodland']} />} />
+        <Route path='/property/godrej-golf-links' element={<PropertyShowcase propertyData={propertiesData['godrej-golf-links']} />} />
+        <Route path='/property/jaypee-greens' element={<PropertyShowcase propertyData={propertiesData['jaypee-greens']} />} />
+        <Route path='/property/the-hemisphere' element={<PropertyShowcase propertyData={propertiesData['the-hemisphere']} />} />
       </Routes>
     </AnimatePresence>
   );

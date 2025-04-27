@@ -8,7 +8,7 @@ import React from 'react';
 // Import the property data
 import { propertiesData } from '../constants/propertiesData' // Adjust the path as needed
 import PropertyShowcase from './Sobha';
-
+import logo from '../assets/logo2.png';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -109,12 +109,13 @@ const Header = () => {
       <div className="container mx-auto px-4">
         {/* Main Navigation */}
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center flex-shrink-0">
+          <Link to="/" className="">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap"
+              className=" font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap flex items-center"
               style={{fontFamily:"Jost"}}
             >
+              <img src={logo} alt="Logo" className="w-10 h-10 " />
               Shivika Infra
             </motion.div>
           </Link>
