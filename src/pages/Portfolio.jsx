@@ -17,7 +17,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col " style={{fontFamily:'Spectral'}}>
       {/* Hero Section */}
       <section className="bg-[#505050] text-white py-20"   style={{
     backgroundColor: "#2e2d30",
@@ -35,7 +35,7 @@ const Portfolio = () => {
 
       <section className="py-16" style={{ backgroundColor: '#F7E6E0' }}> {/* Light rose gold */}
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">
+          <h2 className="text-4xl font-light tracking-wide mb-12 text-center text-[#505050]">
             JP Aman Projects
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -59,7 +59,7 @@ const Portfolio = () => {
 
       <section className="py-16" style={{ backgroundColor: '#F5F2EE' }}> {/* Beige */}
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">
+          <h2 className="text-4xl font-light tracking-wide mb-12 text-center text-[#505050]">
             JP Greens Project
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -83,7 +83,7 @@ const Portfolio = () => {
     
       <section className="py-16" style={{ backgroundColor: '#E5E5E5' }}> {/* Light Grey */}
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-light tracking-wide mb-12 text-center text-[#505050]">
+          <h2 className="text-4xl font-light tracking-wide mb-12 text-center text-[#505050]">
             Godrej Golf Projects
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

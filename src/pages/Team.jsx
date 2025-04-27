@@ -4,14 +4,14 @@ const Team = () => {
   // Main leadership data
   const leadershipData = [
     {
-      name: "md",
+      name: "MD",
       role: "Managing Director",
       bio: "With over 20 years of experience in infrastructure development, John leads our strategic initiatives and oversees all major projects.",
       image: "/images/john-smith.jpg",
       linkedIn: "https://linkedin.com/in/johnsmith"
     },
     {
-      name: "cmd",
+      name: "CMD",
       role: "Chief Managing Director",
       bio: "Sarah brings extensive expertise in project management and financial planning with a proven track record of delivering complex infrastructure solutions.",
       image: "/images/sarah-johnson.jpg",
@@ -20,7 +20,7 @@ const Team = () => {
   ];
 
   return (
-    <div className="flex flex-col font-sans">
+    <div className="flex flex-col" style={{fontFamily:'Spectral'}}>
       {/* Hero Section */}
       <section className="bg-[#404040] text-white py-20"   style={{
     backgroundColor: "#2e2d30",
@@ -37,7 +37,7 @@ const Team = () => {
       {/* Leadership */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-light mb-12 text-center text-[#505050] tracking-wide">Leadership</h2>
+          <h2 className="text-4xl font-light mb-12 text-center text-[#505050] tracking-wide">Leadership</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {leadershipData.map((leader, index) => (
               <div key={index} className="flex flex-col items-center">
@@ -50,7 +50,7 @@ const Team = () => {
                 </div>
                 <h3 className="text-2xl font-medium text-[#404040]">{leader.name}</h3>
                 <p className="text-lg text-[#d4b2a7] mb-4">{leader.role}</p>
-                <p className="text-center text-gray-600 max-w-md mb-4">{leader.bio}</p>
+                <p className="text-center text-gray-600 max-w-md mb-4 text-lg">{leader.bio}</p>
                 <a 
                   href={leader.linkedIn} 
                   target="_blank" 
@@ -70,7 +70,7 @@ const Team = () => {
       {/* Team Overview */}
       <section className="py-16 bg-[#f5f0e8]">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-light mb-8 text-[#505050] tracking-wide">Our Talented Team</h2>
+          <h2 className="text-4xl font-light mb-8 text-[#505050] tracking-wide">Our Talented Team</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-10">
             Beyond our leadership, Shivika Infra Solutions is powered by a diverse team of 15 dedicated professionals. Our experts bring specialized knowledge in civil engineering, project management, architectural design, sustainability, and financial analysis.
           </p>

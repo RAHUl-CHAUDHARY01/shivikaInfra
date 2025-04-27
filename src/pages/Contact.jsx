@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" style={{fontFamily:'Spectral'}}>
       {/* Hero Section */}
       <section className="bg-[#505050] text-white py-20"   style={{
     backgroundColor: "#2e2d30",
@@ -14,7 +14,7 @@ const Contact = () => {
   }}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-light tracking-wide mb-4">Contact Us</h1>
-          <p className="text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed text-[#f0e6e4] font-light">
+          <p className="text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed text-[#d4b2a7] font-light">
             Get in touch with our team for expert consultation
           </p>
         </div>

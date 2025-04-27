@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 
 const Footer = () => {
   return (
-    <footer className=" text-white ">
+    <footer className=" text-white " style={{fontFamily:'Spectral'}}>
             {/* Contact Content */}
             <section className="py-16 bg-white">
               <div className="container mx-auto px-4">

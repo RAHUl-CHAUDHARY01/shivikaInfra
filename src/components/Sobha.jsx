@@ -7,60 +7,59 @@ export default function PropertyShowcase({ propertyData }) {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="font-sans bg-[#a25963]">
+    <div className='bg-[#2e2d30]'>
+
+    <div className="pt-12 font-sans bg-[#2e2d30]">
       {/* Header Section (Image 1) */}
-      <div className="flex flex-col md:flex-row bg-white ">
-        <div className="w-full md:w-1/3 mr-10 p-8 bg-white mt-20">
-          <h1 className="text-4xl font-bold text-black">{propertyData.name}</h1>
-          <p className="text-gray-600 mt-1">By {propertyData.developer}</p>
-          
-          <div className="mt-6 flex items-center">
-            <svg className="w-5 h-5 text-amber-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-            </svg>
-            <span>{propertyData.location}</span>
-          </div>
-          
-          <div className="mt-12 bg-black rounded-lg p-6">
-            {propertyData.features.map((feature, index) => (
-              <div key={index} className="flex items-center mb-4 last:mb-0">
-                <div className="w-6 h-6 flex items-center justify-center mr-2">
-                  <svg className="w-4 h-4 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-                <span className="text-white uppercase text-sm">{feature}</span>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-8">
-            <h2 className="text-2xl font-bold">{propertyData.apartmentTypes.join(" & ")} BHK</h2>
-            <p className="text-gray-600">{propertyData.description}</p>
-          </div>
-          
-          <div className="mt-8 flex items-center">
-            <span className="text-amber-600 text-3xl font-bold">₹ {propertyData.priceRange}</span>
-            <span className="text-gray-600 ml-2">{propertyData.priceNote}</span>
-          </div>
-          
-          <button className="mt-8 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded">
-            ENQUIRE NOW
-          </button>
+    </div>
+    <div className="flex flex-col md:flex-row w-full bg-white">
+      <div className="w-full md:w-2/5 p-6 mt-10">
+        <h1 className="text-5xl font-bold text-black" style={{fontFamily:'Spectral'}}>{propertyData.name}</h1>
+        <p className="text-gray-600 text-xl  mt-1 pl-1" style={{fontFamily:'Spectral'}}>By {propertyData.developer}</p>
+        
+        <div className="mt-4 flex items-center">
+          <span className="text-amber-600 mr-2">●</span>
+          <span className="text-gray-800">{propertyData.location}</span>
         </div>
         
-        <div className="w-full h-[500px] mr-6 md:w-3/5 mt-20">
-          <img 
-            src={propertyData.images.exterior} 
-            alt={propertyData.name} 
-            className="w-full h-full object-cover rounded-[30px]"
-          />
+        <div className="mt-6 bg-black rounded-lg py-2 px-4">
+          {propertyData.features.map((feature, index) => (
+            <div key={index} className={`flex items-center last:mb-0 ${index=== propertyData.features.length - 1 ? 'last:mb-0' : ' border-b-2 border-gray-700 pb-1'}`}>
+              <div className="w-6 h-6 flex items-center justify-center mr-2">
+                <span className="text-amber-600">♦</span>
+              </div>
+              <span className="text-white text-sm">{feature}</span>
+            </div>
+          ))}
         </div>
+        
+        <div className="mt-6">
+          <h2 className="text-2xl font-bold">{propertyData.apartmentTypes.join(" & ")} BHK</h2>
+          <p className="text-gray-600 text-sm">{propertyData.description}</p>
+        </div>
+        
+        <div className="mt-4 flex items-center">
+          <span className="text-amber-600 text-3xl font-bold ml-2">{propertyData.priceRange}</span>
+          <span className="text-gray-600 text-sm ml-2">{propertyData.priceNote}</span>
+        </div>
+        
+        <button className="mt-6 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full">
+          ENQUIRE NOW
+        </button>
       </div>
       
+      <div className="w-full h-[500px] md:w-3/5 justify-center items-center my-auto mx-auto mr-4">
+        <img
+          src={propertyData.images.exterior}
+          alt={propertyData.name}
+          className="w-full h-full object-cover rounded-3xl"
+        />
+      </div>
+    </div>
       {/* Overview Section (Image 2) */}
-      <div className="py-12 px-8">
-        <h2 className="text-xl text-amber-600 font-bold">OVERVIEW</h2>
+      <div className="py-12 px-8 bg-[#e8e0d5]"  style={{fontFamily:'Spectral'
+          }}>
+        <h2 className="text-3xl text-amber-600 font-bold">OVERVIEW</h2>
         
         <h3 className="text-2xl font-bold mt-4">{propertyData.name}</h3>
         
@@ -76,15 +75,17 @@ export default function PropertyShowcase({ propertyData }) {
       </div>
       
       {/* Highlights Section (Image 3) */}
-      <div className="bg-black py-12 px-8 flex flex-col md:flex-row">
+      <div className="py-12 px-8 flex flex-col md:flex-row bg-gray-200"  style={{
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
+  }}>
         <div className="w-full md:w-1/2">
-          <h2 className="text-white text-2xl font-bold mb-8">HIGHLIGHTS OF {propertyData.name}</h2>
+          <h2 className="text-amber-600 text-2xl font-bold mb-8">HIGHLIGHTS OF {propertyData.name}</h2>
           
           <ul className="space-y-2">
             {propertyData.highlights.map((highlight, index) => (
               <li key={index} className="flex items-start">
                 <span className="text-amber-600 font-bold mr-2">{index + 1}.</span>
-                <span className="text-white">{highlight}</span>
+                <span className="text-black">{highlight}</span>
               </li>
             ))}
           </ul>

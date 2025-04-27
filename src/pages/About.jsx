@@ -4,7 +4,7 @@ import office from '../assets/office.jpg';
 import pattern from '../assets/pattern.png';
 const About = () => {
   return (
-    <div className="flex flex-col font-sans">
+    <div className="flex flex-col" style={{fontFamily:'Spectral'}}>
       {/* Hero Section */}
       <section
   className="text-white py-20"
