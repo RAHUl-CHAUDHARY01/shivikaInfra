@@ -66,6 +66,24 @@ const Team = () => {
           </div>
         </div>
       </section>
+      {/* Career Section */}
+      <section className="py-16 bg-[#fff8f3]">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h2 className="text-4xl font-light mb-8 text-[#505050] tracking-wide">Our Journey</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            We started this organisation 21 years back with a vision to grow fast in the RE Market. Encouraged our MD/CEO who saw a vision in this industry, with his visionary mind.
+          </p>
+          <p className="text-lg text-gray-700 mb-6">
+            From then on, building up small houses with rent, sale & purchase for our clients brought prosperity and growth in our vision.
+          </p>
+          <p className="text-lg text-gray-700 mb-6">
+            Since then we just didn't deal in Greater Noida but in various parts of the country and extended our hands to various branches of real estate, for example – INDUSTRIES, LAND PARCELS, RAW HOUSES/GROUP HOUSES, & etc.
+          </p>
+          <p className="text-lg text-gray-700">
+            We wish to keep our clients satisfied and growing our cliental with our expertise gained in all the branches of REAL ESTATE & CONSULTANCY.
+          </p>
+        </div>
+      </section>
 
       {/* Team Overview */}
       <section className="py-16 bg-[#f5f0e8]">
@@ -102,6 +120,7 @@ const Team = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

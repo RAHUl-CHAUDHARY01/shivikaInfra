@@ -1,28 +1,30 @@
 import { motion } from 'framer-motion';
 import { servicesData } from '../constants/services';
 import React from 'react';
-import gaurcity from '../assets/gaurcity.webp';
-import eledico from '../assets/eledico.webp';
-import royalcity from '../assets/royalcity.webp';
+// import gaurcity from '../assets/gaurcity.webp';
+import jpgreen from '../assets/jpgreens4.jpeg';
+import godrej from '../assets/godrej.webp';
+// import royalcity from '../assets/royalcity.webp';
+import sobha from '../assets/sobha.jpg';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
 
 const Services = () => {
   const locations = [
     {
-      name: "Gaur City",
-      image: gaurcity,
-      description: "Premium services available in Gaur City's thriving community"
+      name: "Jaypee Greens",
+      image: jpgreen,
+      description: "Premium services available in Jaypee Greens's thriving community"
     },
     {
-      name: "Eladico",
-      image: eledico,
-      description: "Expert solutions for Eladico's unique infrastructure needs"
+      name: "Godrej",
+      image: godrej,
+      description: "Expert solutions for Godrej's unique infrastructure needs"
     },
     {
-      name: "Royal City",
-      image: royalcity,
-      description: "Comprehensive services in Royal City's prestigious developments"
+      name: "Sobha Realty",
+      image: sobha,
+      description: "Comprehensive services in Sobha Realty's prestigious developments"
     }
   ];
 

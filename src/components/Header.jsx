@@ -48,10 +48,14 @@ const Header = () => {
       name: 'Services',
       hasDropdown: true,
       categories: [
-        { name: 'GNIDA', subcategories: ['Residential', 'Commercial', 'Industrial'] },
-        { name: 'Yamuna', subcategories: ['Architecture', 'Interior', 'Landscape'] },
-        { name: 'Real-Estate', subcategories: ['Rent', 'Sale', 'Feasibility Studies'] },
-        {
+        { name: 'GNIDA', subcategories: ['Compliance', 'Liasioning', 'Allotment'] },
+        { name: 'Yamuna', subcategories: ['Map Approvals', 'NOCs', 'Pollution Certificate'] },
+        { name: 'Real-Estate', subcategories: ['Land Plotting', 'Property Transactions', 'Group Housing'] },
+      ]
+    },
+    { path: '/team', name: 'Team' },
+    { path: '/testimonials', name: 'Testimonials' },
+    { path: '/portfolio', name: 'Portfolio', hasDropdown: true, categories: [{
           name: 'Upcoming Project',
           subcategories: upcomingProjects.map(property => property.name),
           isPropertyList: true,
@@ -62,12 +66,7 @@ const Header = () => {
           subcategories: ongoingProjects.map(property => property.name),
           isPropertyList: true,
           properties: ongoingProjects
-        }
-      ]
-    },
-    { path: '/team', name: 'Team' },
-    { path: '/testimonials', name: 'Testimonials' },
-    { path: '/portfolio', name: 'Portfolio' },
+        }]},
     { path: '/contact', name: 'Contact' },
   ];
 
@@ -90,11 +89,12 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#404040]/90 py-2 shadow-md' : 'bg-transparent py-3'}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#404040]/90 py-2 md:py-1 shadow-md' : 'bg-transparent py-3 md:py-2'}`}>
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between md:justify-start items-center">
           
-          <Link to="/">
+          {/* Logo - Only visible on mobile */}
+          <Link to="/" className="flex-grow md:hidden">
             {scrolled && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -104,14 +104,13 @@ const Header = () => {
                 className="font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap flex items-center"
                 style={{ fontFamily: "Jost" }}
               >
-                <img src={logo} alt="Logo" className="w-10 h-10" />
-                Shivika Infra
+                <img src={logo} alt="Logo" className="w-26 h-auto" />
               </motion.div>
             )}
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-2 lg:space-x-8">
+          {/* Desktop Nav - Left Aligned, No Logo */}
+          <nav className="hidden md:flex items-center space-x-2 lg:space-x-8 ml-0">
             {navLinks.map((link) => (
               <div key={link.path} className="relative group">
                 <Link
@@ -186,7 +185,9 @@ const Header = () => {
             {isOpen ? (
               <FaTimes size={24} className="text-[#d4b2a7]" />
             ) : (
-              <FaBars size={24} />
+              <div className='flex items-center'>
+                <FaBars size={24} />
+              </div>
             )}
           </button>
 

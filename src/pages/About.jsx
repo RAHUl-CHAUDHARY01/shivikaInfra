@@ -113,28 +113,19 @@ const About = () => {
       {/* Mission & Vision */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
+          <div className='text-3xl font-light mb-12 text-center text-[#505050] tracking-wide`'> Our Vision</div>
           <div className="flex flex-col md:flex-row gap-12">
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="md:w-1/2 bg-[#f0e6e4] p-8 rounded-sm shadow-md"
-            >
-              <h2 className="text-2xl font-light mb-4 text-[#505050] tracking-wide">Our Mission</h2>
-              <p className="text-lg text-[#5a5a5a] leading-relaxed">
-                To provide reliable, efficient, and transparent infrastructure consultancy services that empower our clients to navigate complex regulatory processes with confidence.
-              </p>
-            </motion.div>
+          
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="md:w-1/2 bg-[#404040] text-white p-8 rounded-sm shadow-md"
+              className="md:w-full bg-[#404040] text-white p-8 rounded-sm shadow-md"
             >
-              <h2 className="text-2xl font-light mb-4 tracking-wide">Our Vision</h2>
               <p className="text-lg leading-relaxed">
-                To become the most trusted infrastructure consultancy in North India, known for our expertise, integrity, and client-focused approach.
+              This organisation is not just a workplace , this is a place where the whole Shivika family comes along to build up one vision that is the growth of an individual and the organisation.
+              We just don't build houses or properties , we build thoughts of an individual , our team expertise with catering their needs with our experties of consultancy.
               </p>
             </motion.div>
           </div>
