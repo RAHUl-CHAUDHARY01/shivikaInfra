@@ -5,10 +5,12 @@ import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';
 import WhatsAppButton from './components/Whatsapp';
 import ScrollToTop from './ScrollToTop';
+import Logo from './pages/Logo';
 
 function App() {
   return (
     <Router>
+       <Logo />
       <ScrollToTop/>
       <div className="flex flex-col min-h-screen bg-white">
         <Header />

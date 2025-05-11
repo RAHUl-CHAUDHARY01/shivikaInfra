@@ -5,10 +5,10 @@ import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown, FaChevronRight } from 'reac
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
-// Import the property data
-import { propertiesData } from '../constants/propertiesData' // Adjust the path as needed
+import { propertiesData } from '../constants/propertiesData';
 import PropertyShowcase from './Sobha';
 import logo from '../assets/logo2.png';
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -18,9 +18,9 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerWidth >= 768) {
-        setScrolled(window.scrollY > 10);
+        setScrolled(window.scrollY > 30); // Logo appears after scrolling 30px
       } else {
-        setScrolled(true);
+        setScrolled(true); // Always show on mobile
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -28,39 +28,29 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Group properties by type (ongoing or upcoming)
-  const ongoingProjects = Object.values(propertiesData).filter(property => 
-    property.status === 'ongoing' || !property.status // Default to ongoing if status not specified
+  const ongoingProjects = Object.values(propertiesData).filter(property =>
+    property.status === 'ongoing' || !property.status
   );
-  
-  const upcomingProjects = Object.values(propertiesData).filter(property => 
+
+  const upcomingProjects = Object.values(propertiesData).filter(property =>
     property.status === 'upcoming'
   );
 
   const navLinks = [
     { path: '/', name: 'Home' },
-    { 
-      path: '/about', 
+    {
+      path: '/about',
       name: 'About',
       hasDropdown: false,
     },
-    { 
-      path: '/services', 
+    {
+      path: '/services',
       name: 'Services',
       hasDropdown: true,
       categories: [
-        {
-          name: 'GNIDA',
-          subcategories: ['Residential', 'Commercial', 'Industrial']
-        },
-        {
-          name: 'Yamuna',
-          subcategories: ['Architecture', 'Interior', 'Landscape']
-        },
-        {
-          name: 'Real-Estate',
-          subcategories: ['Rent', 'Sale', 'Feasibility Studies']
-        },
+        { name: 'GNIDA', subcategories: ['Residential', 'Commercial', 'Industrial'] },
+        { name: 'Yamuna', subcategories: ['Architecture', 'Interior', 'Landscape'] },
+        { name: 'Real-Estate', subcategories: ['Rent', 'Sale', 'Feasibility Studies'] },
         {
           name: 'Upcoming Project',
           subcategories: upcomingProjects.map(property => property.name),
@@ -88,17 +78,12 @@ const Header = () => {
 
   const handleSubcategoryClick = (category, subcategory, isPropertyItem = false, propertyId = null) => {
     if (isPropertyItem && propertyId) {
-      // Navigate to property detail page
-      console.log(propertyId);
-        const propertyData = propertiesData[propertyId];
+      const propertyData = propertiesData[propertyId];
       navigate(`/property/${propertyId}`);
-     return  <PropertyShowcase propertyData={propertyData} />
+      return <PropertyShowcase propertyData={propertyData} />
     } else {
-      // Navigate to contact page with subcategory as a query parameter (original behavior)
       navigate(`/contact?category=${encodeURIComponent(category)}&subcategory=${encodeURIComponent(subcategory)}`);
     }
-    
-    // Close mobile menu if open
     if (isOpen) {
       setIsOpen(false);
     }
@@ -107,34 +92,34 @@ const Header = () => {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#404040]/90 py-2 shadow-md' : 'bg-transparent py-3'}`}>
       <div className="container mx-auto px-4">
-        {/* Main Navigation */}
         <div className="flex justify-between items-center">
-          <Link to="/" className="">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className=" font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap flex items-center"
-              style={{fontFamily:"Jost"}}
-            >
-              <img src={logo} alt="Logo" className="w-10 h-10 " />
-              Shivika Infra
-            </motion.div>
+          
+          <Link to="/">
+            {scrolled && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+                className="font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap flex items-center"
+                style={{ fontFamily: "Jost" }}
+              >
+                <img src={logo} alt="Logo" className="w-10 h-10" />
+                Shivika Infra
+              </motion.div>
+            )}
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-2 lg:space-x-8">
             {navLinks.map((link) => (
-              <div 
-                key={link.path} 
-                className="relative group"
-              >
+              <div key={link.path} className="relative group">
                 <Link
                   to={link.path}
                   className={`px-1 lg:px-2 py-1 text-sm lg:text-base text-white font-semibold hover:text-[#d4b2a7] transition-all duration-300 flex items-center ${location.pathname === link.path ? 'text-[#d4b2a7] tracking-wide' : ''}`}
                 >
                   {link.name}
-                  {link.hasDropdown && (
-                    <FaChevronDown className="ml-1 text-xs" />
-                  )}
+                  {link.hasDropdown && <FaChevronDown className="ml-1 text-xs" />}
                 </Link>
                 <motion.div
                   initial={{ width: 0 }}
@@ -142,8 +127,7 @@ const Header = () => {
                   className="h-0.5 bg-[#b76e79] absolute bottom-0 left-0"
                 />
                 <div className="absolute left-0 right-0 h-0.5 bg-[#b76e79] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-                
-                {/* First level dropdown menu (Categories) */}
+
                 {link.hasDropdown && (
                   <div className="absolute left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="bg-white rounded-md shadow-lg py-2">
@@ -153,30 +137,26 @@ const Header = () => {
                             {category.name}
                             <FaChevronRight className="text-xs text-gray-500" />
                           </div>
-                          
-                          {/* Second level dropdown (Subcategories) */}
                           <div className="absolute left-full top-0 w-56 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-300">
                             <div className="bg-white rounded-md shadow-lg py-2 ml-2">
                               {category.subcategories.map((subcategory, subIdx) => {
-                                // Find the matching property if this is a property list
-                                const propertyItem = category.isPropertyList 
-                                  ? category.properties.find(p => p.name === subcategory) 
+                                const propertyItem = category.isPropertyList
+                                  ? category.properties.find(p => p.name === subcategory)
                                   : null;
-                                
+
                                 return (
-                                  <div 
+                                  <div
                                     key={subIdx}
                                     className="px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#b76e79] cursor-pointer"
                                     onClick={() => handleSubcategoryClick(
-                                      category.name, 
-                                      subcategory, 
+                                      category.name,
+                                      subcategory,
                                       category.isPropertyList,
                                       propertyItem?.id
                                     )}
                                   >
                                     <div className="flex items-center justify-between">
                                       <span>{subcategory}</span>
-                                
                                     </div>
                                     {propertyItem && (
                                       <div className="text-xs text-gray-500 mt-1">
@@ -232,26 +212,20 @@ const Header = () => {
                         <Accordion title={link.name} isActive={location.pathname === link.path}>
                           <div className="pl-4 space-y-4 mt-2">
                             {link.categories.map((category, catIndex) => (
-                              <Accordion 
-                                key={catIndex}
-                                title={category.name} 
-                                isActive={false}
-                                smaller
-                              >
+                              <Accordion key={catIndex} title={category.name} isActive={false} smaller>
                                 <div className="pl-4 space-y-2 mt-2">
                                   {category.subcategories.map((subcategory, subIdx) => {
-                                    // Find the matching property if this is a property list
-                                    const propertyItem = category.isPropertyList 
-                                      ? category.properties.find(p => p.name === subcategory) 
+                                    const propertyItem = category.isPropertyList
+                                      ? category.properties.find(p => p.name === subcategory)
                                       : null;
-                                    
+
                                     return (
-                                      <div 
+                                      <div
                                         key={subIdx}
                                         className="text-white hover:text-[#d4b2a7] cursor-pointer py-1"
                                         onClick={() => handleSubcategoryClick(
-                                          category.name, 
-                                          subcategory, 
+                                          category.name,
+                                          subcategory,
                                           category.isPropertyList,
                                           propertyItem?.id
                                         )}
@@ -287,9 +261,7 @@ const Header = () => {
                       >
                         <Link
                           to={link.path}
-                          className={`text-xl font-light tracking-wide block py-2 ${
-                            location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'
-                          }`}
+                          className={`text-xl font-light tracking-wide block py-2 ${location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'}`}
                           onClick={() => setIsOpen(false)}
                         >
                           {link.name}
@@ -321,19 +293,16 @@ const Header = () => {
   );
 };
 
-// Accordion component for mobile menu
 const Accordion = ({ title, children, isActive = false, smaller = false }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <div className="border-b border-[#606060]">
       <button
-        className={`flex items-center justify-between w-full py-2 text-left ${
-          smaller ? 'text-base' : 'text-xl'
-        } ${isActive ? 'text-[#b76e79]' : 'text-white'}`}
+        className={`flex items-center justify-between w-full py-2 text-left ${smaller ? 'text-base' : 'text-xl'} ${isActive ? 'text-[#b76e79]' : 'text-white'}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className={`font-light tracking-wide ${smaller ? '' : ''}`}>{title}</span>
+        <span className={`font-light tracking-wide`}>{title}</span>
         <span className="ml-2 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : '' }}>
           <FaChevronDown className={`${smaller ? 'text-xs' : 'text-sm'}`} />
         </span>

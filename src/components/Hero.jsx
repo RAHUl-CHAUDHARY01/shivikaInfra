@@ -102,7 +102,7 @@ const Hero = () => {
 
   return (
     <section className="relative overflow-hidden w-full" style={{
-      height: isMobile ? '60vh' : '90vh',
+      height: isMobile ? '60vh' : '95vh',
       minHeight: isMobile ? '400px' : '600px',
     }}>
       {/* Elegant progress bar */}
@@ -128,19 +128,17 @@ const Hero = () => {
             className="absolute inset-0"
           >
             {/* Enhanced darker gradient overlay for better text contrast */}
-            <div 
-              className="absolute inset-0 z-0"
-              style={{ 
-                background: `linear-gradient(to bottom, 
-                  rgba(0,0,0,0.5) 0%, 
-                  rgba(0,0,0,0.6) 50%,
-                  rgba(0,0,0,0.7) 100%),
-                  linear-gradient(120deg, 
-                  rgba(0,0,0,0.7) 0%, 
-                  rgba(0,0,0,0.4) 50%,
-                  rgba(0,0,0,0.7) 100%)`
-              }}
-            />
+           <div 
+  className="absolute inset-0"
+  style={{ 
+    background: `linear-gradient(to bottom, 
+      rgba(0,0,0,0.7) 0%, 
+      rgba(0,0,0,0.8) 50%, 
+      rgba(0,0,0,0.85) 100%)`
+  }}
+></div>
+
+
             
             {/* Background image with subtle tint */}
             <motion.div 
@@ -148,7 +146,7 @@ const Hero = () => {
               style={{ 
                 backgroundImage: `url(${slide.bgImage})`,
                 backgroundSize: isMobile ? 'cover' : 'cover',
-                filter: 'brightness(0.85) contrast(1.1)',
+                filter: 'brightness(0.30) contrast(1.1)',
                 backgroundPosition: isMobile ? 'center center' : 'center center'
               }}
               initial={{ scale: 1.05, y: 0 }}
