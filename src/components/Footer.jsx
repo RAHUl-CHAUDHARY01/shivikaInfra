@@ -11,7 +11,7 @@ const Footer = () => {
               <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-12">
                   {/* Contact Information */}
-                  <div className="lg:w-1/3">
+                  <div className="w-full">
                     <h2 className="text-3xl font-light tracking-wide mb-8 text-[#505050]">Our Contact Information</h2>
                     
                     <div className="flex items-start gap-4 mb-6">
@@ -76,7 +76,7 @@ const Footer = () => {
                 </div>
               </div>
             </section>
-      <div className="bg-[#2e2d30] py-16 container mx-auto px-4">
+      <div className="bg-[#2e2d30] py-16 mx-auto w-full px-4 ">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-[#d4b2a7] text-2xl font-light tracking-wide mb-4">Shivika Infra</h3>
