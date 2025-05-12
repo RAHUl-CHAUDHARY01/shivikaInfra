@@ -9,8 +9,12 @@ import Logo from './pages/Logo';
 
 function AppContent() {
   const location = useLocation();
-  const showLogo = location.pathname !== '/';
-
+  const path = location.pathname;
+    const showLogo = !(
+    path === '/' || 
+    path === '/property' || 
+    path.startsWith('/property/')
+  );
   return (
     <>
       {showLogo && <Logo />}
