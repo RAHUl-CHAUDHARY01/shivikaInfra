@@ -186,7 +186,7 @@ const Header = () => {
               <FaTimes size={24} className="text-[#d4b2a7]" />
             ) : (
               <div className='flex items-center'>
-                <FaBars size={24} />
+                <FaBars size={24}  />
               </div>
             )}
           </button>

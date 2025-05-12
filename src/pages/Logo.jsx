@@ -30,7 +30,7 @@ export default function Logo() {
         showLogo ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <img src={logo} alt="Logo" className="w-32 h-auto" />
+      <img src={logo} alt="Logo" className="w-66 h-auto" />
     </div>
   );
 }
