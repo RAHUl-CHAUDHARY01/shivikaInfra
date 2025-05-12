@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assets/logo2.png';
+
 export default function Logo() {
   const [showLogo, setShowLogo] = useState(true);
-  let lastScrollY = window.scrollY;
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setShowLogo(false);
-      } else {
-        // Scrolling up
-        setShowLogo(true);
-      }
-
-      lastScrollY = currentScrollY;
+      // Show logo only when scroll position is within top 100px
+      setShowLogo(currentScrollY < 100);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
