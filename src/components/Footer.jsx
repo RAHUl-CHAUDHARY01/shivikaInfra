@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 const Footer = () => {
   return (
     <footer className=" text-white " style={{fontFamily:'Spectral'}}>
-            {/* Contact Content */}
+       
             <section className="py-16 bg-white">
               <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-12">
@@ -64,8 +64,7 @@ const Footer = () => {
                 </div>
               </div>
             </section>
-            
-            {/* Map Section */}
+          
             <section className="py-16 bg-[#f5f0e8]"  style={{
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
   }}>

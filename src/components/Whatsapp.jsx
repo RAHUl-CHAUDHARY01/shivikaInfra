@@ -1,10 +1,7 @@
 import React from 'react';
 
 const WhatsAppButton = ({ phoneNumber, message }) => {
-  // Format the phone number (remove any non-digit characters)
   const formattedNumber = phoneNumber.replace(/\D/g, '');
-  
-  // Create the WhatsApp URL with the phone number and optional message
   const whatsappUrl = `https://wa.me/${formattedNumber}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
   
   return (

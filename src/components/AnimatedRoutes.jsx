@@ -11,14 +11,13 @@ import Portfolio from '../pages/Portfolio';
 import PropertyShowcase from './Sobha';
 import { propertiesData } from '../constants/propertiesData';
 const PropertyDetail = () => {
-  // Get property ID from URL
+
   const pathParts = window.location.pathname.split('/');
   const propertyId = pathParts[pathParts.length - 1];
   console.log(propertyId);
-  // Get property data using ID
+
   const propertyData = propertiesData[propertyId];
   console.log(propertyData);
-  // If property not found, redirect to home
   if (!propertyData) {
     return <Navigate to="/" />;
   }
@@ -27,8 +26,7 @@ const PropertyDetail = () => {
 };
 
 const AnimatedRoutes = () => {
-  // const location = useLocation();
-  // location={location} key={location.pathname}
+
   return (
     <AnimatePresence mode='wait'>
       <Routes >

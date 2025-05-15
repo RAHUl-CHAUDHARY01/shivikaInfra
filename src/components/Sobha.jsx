@@ -1,9 +1,8 @@
-// src/components/PropertyShowcase.jsx
+
 import React, { useState } from 'react';
 
-// This component will be reused for all property pages
 export default function PropertyShowcase({ propertyData }) {
-  // For the tabs in Image 2
+
   const [activeTab, setActiveTab] = useState('overview');
 
   return (

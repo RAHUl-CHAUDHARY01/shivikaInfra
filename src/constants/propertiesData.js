@@ -1,13 +1,11 @@
-// src/data/propertiesData.js
-// This file contains all your property data
 
 import sobhaBg from '../assets/sobha.jpg';
 import sobhaInterior from '../assets/sobha2.jpg';
 import godrej from '../assets/godrej.webp';
-// Import other property images as needed
+
 
 export const propertiesData = {
-  // Original property (marked as ongoing)
+
   "sobha-sector-36": {
     id: "sobha-sector-36",
     name: "SOBHA SECTOR 36",
