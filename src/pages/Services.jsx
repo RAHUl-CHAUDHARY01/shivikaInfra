@@ -1,13 +1,12 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { servicesData } from '../constants/services';
-import React from 'react';
-// import gaurcity from '../assets/gaurcity.webp';
-import jpgreen from '../assets/jpgreens4.jpeg';
-import godrej from '../assets/godrej.webp';
-// import royalcity from '../assets/royalcity.webp';
-import sobha from '../assets/sobha.jpg';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
+
+import jpgreen from '../assets/jpgreens4.jpeg';
+import godrej from '../assets/godrej.webp';
+import sobha from '../assets/sobha.jpg';
 
 const Services = () => {
   const locations = [
@@ -49,7 +48,6 @@ const Services = () => {
 
   return (
     <div className="bg-white font-sans">
-      {/* Hero Section */}
       <section className=" text-white py-20"  style={{
     backgroundColor: "#2e2d30",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
@@ -90,27 +88,6 @@ const Services = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.services.map((service, index) => (
-                  // <motion.div
-                  //   key={index}
-                  //   initial={{ opacity: 0, y: 50 }}
-                  //   whileInView={{ opacity: 1, y: 0 }}
-                  //   transition={{ delay: index * 0.1 }}
-                  //   viewport={{ once: true }}
-                  //   whileHover={{ y: -5 }}
-                  //   className="bg-white border border-gray-100 rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-all"
-                  // >
-                  //   <div className="p-6">
-                  //     <div className="text-4xl mb-4 text-[#b76e79]">{service.icon}</div>
-                  //     <h3 className="text-xl font-medium mb-3 text-[#505050]">{service.title}</h3>
-                  //     <p className="text-[#5a5a5a] mb-4 leading-relaxed">{service.description}</p>
-                  //     <div className="flex items-center text-sm text-[#9a9a9a]">
-                  //       <svg className="w-4 h-4 mr-1 text-[#b76e79]" fill="currentColor" viewBox="0 0 20 20">
-                  //         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  //       </svg>
-                  //       Available in: Gaur City, Eladico, Royal City
-                  //     </div>
-                  //   </div>
-                  // </motion.div>
                   <ServiceCard key={index} service={service} />
                 ))}
               </div>
@@ -149,11 +126,8 @@ const Services = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                   <div>
-                    <h3 className="text-2xl font-light text-white mb-2 tracking-wide">{location.name}</h3>
-                    <p className="text-[#d4b2a7]">{location.description}</p>
-                    <button className="mt-4 bg-[#b76e79] text-white px-4 py-2 rounded-sm text-sm font-normal hover:bg-[#a35d68] transition-all duration-300 shadow-md">
-                      View Projects
-                    </button>
+                    <h3 className="text-2xl font-bold text-white mb-2 tracking-wide" style={{fontFamily:'Spectral'}}>{location.name}</h3>
+                    <p className="text-[#d4b2a7] font-bold" style={{fontFamily:'Spectral'}}>{location.description}</p>
                   </div>
                 </div>
               </motion.div>
