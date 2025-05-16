@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaPlay, FaPause } from "react-icons/fa";
-import hero1 from "../assets/hero1.jpg";
-import hero2 from "../assets/image2.jpg";
-import hero3 from "../assets/jpaman.jpeg";
-import hero4 from "../assets/jpgreens.jpg";
+import hero1 from "../assets/hero1.webp";
+import hero2 from "../assets/image2.webp";
+import hero3 from "../assets/jpaman.webp";
+import hero4 from "../assets/jpgreens.webp";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo2.png";
+import logo from "../assets/logo2.webp";
 const Hero = () => {
   // Refined color theme palette
   const theme = {

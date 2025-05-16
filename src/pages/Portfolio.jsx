@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { portfolioData } from "../constants/Portfolio";
-import office from "../assets/office.jpg";
+import office from "../assets/office.webp";
 import { i } from "framer-motion/client";
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import office from "../assets/office.jpg";
+import office from "../assets/office.webp";
 const About = () => {
   return (
     <div className="flex flex-col" style={{ fontFamily: "Spectral" }}>

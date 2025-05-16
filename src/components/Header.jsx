@@ -7,7 +7,7 @@ import React from 'react';
 
 import { propertiesData } from '../constants/propertiesData';
 import PropertyShowcase from './Sobha';
-import logo from '../assets/logo2.png';
+import logo from '../assets/logo2.webp';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

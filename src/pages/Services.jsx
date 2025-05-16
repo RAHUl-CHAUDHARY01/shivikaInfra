@@ -4,9 +4,9 @@ import { servicesData } from '../constants/services';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
 
-import jpgreen from '../assets/jpgreens4.jpeg';
+import jpgreen from '../assets/jpgreens4.webp';
 import godrej from '../assets/godrej.webp';
-import sobha from '../assets/sobha.jpg';
+import sobha from '../assets/sobha.webp';
 
 const Services = () => {
   const locations = [

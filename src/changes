@@ -1,0 +1,24 @@
+mobile version:
+    1. Logo on navigation bar at top should be visible only on first section (hero). and as we scroll it should be hidden and navigation
+    height should be lowered to 50%.
+
+    2. When we click three lines, (button on top-right which opens side-panel navigation)it shows the links to different pages. But,
+    as we click services/portflio it expands to more links, it should be opening services/portflio when we click services/portflio. make it like:
+    "services   (down arrow)"- clicks services- opens /service and -clicks down arrow- expands the services to multiple links.
+
+    3. Also in Side-panel only ( ui improvement-  lower the font-size of all the fonts and lower the margin/ padding between each link 
+    and divide it in 2 sections- one in top: links (as it is with ui improvements) and second on bottom: footer( as it is but with more
+    details- address, phone numbers, email, instagram, submit the form to schedule a meeting) )
+
+    4. Also make sure when a link is clicked in side panel navigation, as soon as the link is clicked, the side panel should be closed.(It
+    doesn't closes when we click portflio)
+
+Universal:
+    1. Home Page- hero section: Change all the major headings to Inter/ Montserrat font. 
+    2. Home/About/Services/Team/Testimonial/portflio/Contact- the Logo is not properly placed. Add another section in these pages at top like a hero section which shares the logo in black background in all these pages. The sections below are good to go.
+     ![Have a look](image.png). make the logo and the Contact us(heading and p section) in two different divs- one will show the logo centered with bg-black and the other below the first one will be shown as present.
+
+Desktop Version: 
+    1. Hero Section Home page- Place logo in center and below the logo on the left side place all the text.
+    ![Have a look](image-1.png)
+    ![For Reference](<Screenshot 2025-05-16 120546.png>)

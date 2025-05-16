@@ -1,6 +1,6 @@
 
-import sobhaBg from '../assets/sobha.jpg';
-import sobhaInterior from '../assets/sobha2.jpg';
+import sobhaBg from '../assets/sobha.webp';
+import sobhaInterior from '../assets/sobha2.webp';
 import godrej from '../assets/godrej.webp';
 
 
