@@ -17,6 +17,7 @@ Universal:
     1. Home Page- hero section: Change all the major headings to Inter/ Montserrat font. 
     2. Home/About/Services/Team/Testimonial/portflio/Contact- the Logo is not properly placed. Add another section in these pages at top like a hero section which shares the logo in black background in all these pages. The sections below are good to go.
      ![Have a look](image.png). make the logo and the Contact us(heading and p section) in two different divs- one will show the logo centered with bg-black and the other below the first one will be shown as present.
+    3. In home page below clients says section- add projects section.
 
 Desktop Version: 
     1. Hero Section Home page- Place logo in center and below the logo on the left side place all the text.
