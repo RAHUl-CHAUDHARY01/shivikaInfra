@@ -1,8 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown, FaChevronRight } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
+import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown, FaChevronRight, FaInstagram } from 'react-icons/fa';
+import { MdEmail, MdLocationOn } from 'react-icons/md';
 import React from 'react';
 
 import { propertiesData } from '../constants/propertiesData';
@@ -12,6 +12,7 @@ import logo from '../assets/logo2.webp';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const Header = () => {
         setScrolled(window.scrollY > 30); // Logo appears after scrolling 30px
       } else {
         setScrolled(true); // Always show on mobile
+        setIsAtTop(window.scrollY <= 100); // Check if at hero section (top of page)
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -73,29 +75,43 @@ const Header = () => {
   const contactInfo = [
     { icon: <FaPhoneAlt className="mr-2" />, text: '+91 989 93 600 01' },
     { icon: <MdEmail className="mr-2" />, text: 'shivikainfrasolutions001@gmail.com' },
+    { icon: <MdLocationOn className="mr-2" />, text: 'Greater Noida, Uttar Pradesh' },
+    { icon: <FaInstagram className="mr-2" />, text: '@shivika_infra' },
   ];
 
   const handleSubcategoryClick = (category, subcategory, isPropertyItem = false, propertyId = null) => {
     if (isPropertyItem && propertyId) {
       const propertyData = propertiesData[propertyId];
       navigate(`/property/${propertyId}`);
+      setIsOpen(false);
       return <PropertyShowcase propertyData={propertyData} />
     } else {
       navigate(`/contact?category=${encodeURIComponent(category)}&subcategory=${encodeURIComponent(subcategory)}`);
-    }
-    if (isOpen) {
       setIsOpen(false);
     }
   };
 
+  const handleNavLinkClick = (path) => {
+    navigate(path);
+    setIsOpen(false);
+  };
+
+  const getHeaderHeight = () => {
+    if (window.innerWidth >= 768) {
+      return scrolled ? 'py-1' : 'py-2';
+    } else {
+      return isAtTop ? 'py-2' : 'py-1';
+    }
+  };
+
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-transparent md:bg-[#404040]/90 py-2 md:py-1 shadow-md' : 'bg-transparent py-3 md:py-2'}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-transparent md:bg-[#404040]/90 shadow-md' : 'bg-transparent'} ${getHeaderHeight()}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between md:justify-start items-center">
           
-          {/* Logo - Only visible on mobile */}
+          {/* Logo - Only visible on mobile when at hero section */}
           <Link to="/" className="flex-grow md:hidden">
-            {scrolled && (
+            {isAtTop && location.pathname === '/' && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -104,7 +120,7 @@ const Header = () => {
                 className="font-semibold tracking-wide bg-white bg-clip-text text-transparent whitespace-nowrap flex items-center"
                 style={{ fontFamily: "Jost" }}
               >
-                <img src={logo} alt="Logo" className="w-26 h-auto" />
+                <img src={logo} alt="Logo" className="w-24 h-auto" />
               </motion.div>
             )}
           </Link>
@@ -183,10 +199,10 @@ const Header = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <FaTimes size={24} className="text-[#d4b2a7]" />
+              <FaTimes size={22} className="text-[#d4b2a7]" />
             ) : (
-              <div className='flex items-center'>
-                <FaBars size={24}  />
+              <div className='flex items-center text-black'>
+                <FaBars size={22} />
               </div>
             )}
           </button>
@@ -199,91 +215,124 @@ const Header = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: '100%' }}
                 transition={{ type: 'spring', damping: 25 }}
-                className="fixed inset-0 bg-[#404040] flex flex-col items-center justify-center space-y-6 overflow-y-auto pt-16 pb-8 px-4"
+                className="fixed inset-0 bg-[#404040] flex flex-col justify-between overflow-y-auto"
               >
-                {navLinks.map((link, index) => (
-                  <React.Fragment key={link.path}>
-                    {link.hasDropdown ? (
-                      <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.05 }}
-                        className="w-full max-w-xs"
-                      >
-                        <Accordion title={link.name} isActive={location.pathname === link.path}>
-                          <div className="pl-4 space-y-4 mt-2">
-                            {link.categories.map((category, catIndex) => (
-                              <Accordion key={catIndex} title={category.name} isActive={false} smaller>
-                                <div className="pl-4 space-y-2 mt-2">
-                                  {category.subcategories.map((subcategory, subIdx) => {
-                                    const propertyItem = category.isPropertyList
-                                      ? category.properties.find(p => p.name === subcategory)
-                                      : null;
-
-                                    return (
-                                      <div
-                                        key={subIdx}
-                                        className="text-white hover:text-[#d4b2a7] cursor-pointer py-1"
-                                        onClick={() => handleSubcategoryClick(
-                                          category.name,
-                                          subcategory,
-                                          category.isPropertyList,
-                                          propertyItem?.id
-                                        )}
-                                      >
-                                        <div className="flex items-center justify-between">
-                                          <span>{subcategory}</span>
-                                          {propertyItem && (
-                                            <span className="text-sm text-amber-400 font-medium">
-                                              {propertyItem.priceRange}
-                                            </span>
-                                          )}
-                                        </div>
-                                        {propertyItem && (
-                                          <div className="text-xs text-gray-400 mt-1">
-                                            {propertyItem.location}
-                                          </div>
-                                        )}
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              </Accordion>
-                            ))}
-                          </div>
-                        </Accordion>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.05 }}
-                        className="w-full max-w-xs text-center"
-                      >
-                        <Link
-                          to={link.path}
-                          className={`text-xl font-light tracking-wide block py-2 ${location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'}`}
-                          onClick={() => setIsOpen(false)}
+                {/* Navigation Links Section */}
+                <div className="pt-16 px-4 flex-grow overflow-y-auto">
+                  <div className="space-y-2">
+                    {navLinks.map((link, index) => (
+                      <React.Fragment key={link.path}>
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: index * 0.05 }}
+                          className="w-full"
                         >
-                          {link.name}
-                        </Link>
+                          <div className="flex items-center justify-between border-b border-[#505050]">
+                            <button
+                              className={`text-base py-2 text-left flex-grow ${location.pathname === link.path ? 'text-[#b76e79]' : 'text-white'}`}
+                              onClick={() => handleNavLinkClick(link.path)}
+                            >
+                              <span className="font-medium tracking-wide">{link.name}</span>
+                            </button>
+                            
+                            {link.hasDropdown && (
+                              <button
+                                className="p-2 text-white"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  document.getElementById(`accordion-${index}`).click();
+                                }}
+                              >
+                                <FaChevronDown className="text-xs" />
+                              </button>
+                            )}
+                          </div>
+                          
+                          {link.hasDropdown && (
+                            <Accordion id={`accordion-${index}`} isActive={location.pathname === link.path}>
+                              <div className="pl-4 space-y-2 mt-1 mb-2">
+                                {link.categories.map((category, catIndex) => (
+                                  <Accordion key={catIndex} title={category.name} isActive={false} smaller>
+                                    <div className="pl-4 space-y-1 mt-1 mb-1">
+                                      {category.subcategories.map((subcategory, subIdx) => {
+                                        const propertyItem = category.isPropertyList
+                                          ? category.properties.find(p => p.name === subcategory)
+                                          : null;
+
+                                        return (
+                                          <div
+                                            key={subIdx}
+                                            className="text-white hover:text-[#d4b2a7] cursor-pointer py-1"
+                                            onClick={() => handleSubcategoryClick(
+                                              category.name,
+                                              subcategory,
+                                              category.isPropertyList,
+                                              propertyItem?.id
+                                            )}
+                                          >
+                                            <div className="flex items-center justify-between">
+                                              <span className="text-sm">{subcategory}</span>
+                                              {propertyItem && (
+                                                <span className="text-xs text-amber-400 font-medium">
+                                                  {propertyItem.priceRange}
+                                                </span>
+                                              )}
+                                            </div>
+                                            {propertyItem && (
+                                              <div className="text-xs text-gray-400">
+                                                {propertyItem.location}
+                                              </div>
+                                            )}
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  </Accordion>
+                                ))}
+                              </div>
+                            </Accordion>
+                          )}
+                        </motion.div>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Footer Contact Information */}
+                <div className="px-4 py-6 bg-[#353535]">
+                  <h3 className="text-[#d4b2a7] font-medium text-sm mb-3 border-b border-[#505050] pb-1">Contact Information</h3>
+                  <div className="space-y-2">
+                    {contactInfo.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 + index * 0.1 }}
+                        className="flex items-center text-xs text-white"
+                      >
+                        <span className="flex-shrink-0 text-[#d4b2a7]">{item.icon}</span>
+                        <span className="ml-2 break-all">{item.text}</span>
                       </motion.div>
-                    )}
-                  </React.Fragment>
-                ))}
-                <div className="mt-6 space-y-4 w-full max-w-xs">
-                  {contactInfo.map((item, index) => (
+                    ))}
+                    
+                    {/* Schedule Meeting Button */}
                     <motion.div
-                      key={index}
-                      initial={{ y: 20, opacity: 0 }}
+                      initial={{ y: 10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
-                      className="flex items-center justify-center text-base text-[#d4b2a7] break-all"
+                      transition={{ delay: 0.6 }}
+                      className="mt-3 pt-2 border-t border-[#505050]"
                     >
-                      <span className="flex-shrink-0 mr-2">{item.icon}</span>
-                      <span className="font-light">{item.text}</span>
+                      <button 
+                        className="w-full bg-[#b76e79] hover:bg-[#a05c66] text-white font-medium py-2 px-4 rounded-sm text-sm transition-colors"
+                        onClick={() => {
+                          handleNavLinkClick('/contact?meeting=true');
+                        }}
+                      >
+                        Schedule a Meeting
+                      </button>
                     </motion.div>
-                  ))}
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -294,22 +343,25 @@ const Header = () => {
   );
 };
 
-const Accordion = ({ title, children, isActive = false, smaller = false }) => {
+const Accordion = ({ id, title, children, isActive = false, smaller = false }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-[#606060]">
-      <button
-        className={`flex items-center justify-between w-full py-2 text-left ${smaller ? 'text-base' : 'text-xl'} ${isActive ? 'text-[#b76e79]' : 'text-white'}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span className={`font-light tracking-wide`}>{title}</span>
-        <span className="ml-2 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : '' }}>
-          <FaChevronDown className={`${smaller ? 'text-xs' : 'text-sm'}`} />
-        </span>
-      </button>
+    <div className={smaller ? "border-b border-[#505050]" : ""}>
+      {title && (
+        <button
+          id={id}
+          className={`flex items-center justify-between w-full py-1.5 text-left ${smaller ? 'text-sm' : 'text-base'} ${isActive ? 'text-[#b76e79]' : 'text-white'}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className={`font-medium tracking-wide`}>{title}</span>
+          <span className="ml-2 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : '' }}>
+            <FaChevronDown className={`${smaller ? 'text-xs' : 'text-xs'}`} />
+          </span>
+        </button>
+      )}
       <AnimatePresence>
-        {isOpen && (
+        {(isOpen || !title) && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}

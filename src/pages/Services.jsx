@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { servicesData } from '../constants/services';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
+import logo from '../assets/logo.webp';
 
 import jpgreen from '../assets/jpgreens4.webp';
 import godrej from '../assets/godrej.webp';
@@ -47,28 +48,34 @@ const Services = () => {
   ];
 
   return (
-    <div className="bg-white font-sans">
-      <section className=" text-white py-20"  style={{
-    backgroundColor: "#2e2d30",
-    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
-  }} >
-        <div className="absolute inset-0 "></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-light mb-6 tracking-wide"
-          >
-            Our Premium Services
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-[#d4b2a7]"
-          >
-            Available across major developments in Noida and Greater Noida
-          </motion.p>
+    <div className="bg-white" style={{ fontFamily: 'Spectral' }}>
+      {/* Logo Header Section */}
+      <section className="bg-black text-white py-2">
+        <div className="container mx-auto px-4 flex flex-col justify-center items-center">
+          <div className="text-center">
+            <img
+              src={logo}
+              alt="Company Logo"
+              className="h-48 mx-auto"
+            />
+          </div>
+          <div className="container mx-auto px-4 text-center">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-5xl font-light mb-4 tracking-wide" 
+            >
+              Our Premium Services
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-[#d4b2a7]"
+            >
+              Available across major developments in Noida and Greater Noida
+            </motion.p>
+          </div>
         </div>
       </section>
 
@@ -78,7 +85,6 @@ const Services = () => {
           {serviceCategories.map((category, catIndex) => (
             <div key={catIndex} className="mb-20">
               <motion.h2 
-               
                 viewport={{ once: true }}
                 className="text-3xl font-light mb-12 text-center text-[#505050] relative inline-block mx-auto tracking-wide"
               >

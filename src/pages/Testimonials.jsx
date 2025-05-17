@@ -1,6 +1,8 @@
 import { testimonialsData } from "../constants/Testimonials";
 import TestimonialCard from "../components/TestimonialCard";
 import React from "react";
+import logo from '../assets/logo.webp';
+import { Link } from 'react-router-dom';
 
 const Testimonials = () => {
   const featuredTestimonials = testimonialsData.filter((t) => t.featured);
@@ -8,25 +10,25 @@ const Testimonials = () => {
   const videoTestimonials = testimonialsData.filter((t) => t.video);
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section
-        className="bg-[#505050] text-white py-20"
-        style={{
-          backgroundColor: "#2e2d30",
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b5b0bd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
-        }}
-      >
-        <div
-          className="container mx-auto px-4 text-center"
-          style={{ fontFamily: "Spectral" }}
-        >
-          <h1 className="text-4xl md:text-5xl font-light tracking-wide mb-4">
-            Testimonials
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed text-[#d4b2a7]">
-            What our clients say about our services
-          </p>
+    <div className="flex flex-col" style={{ fontFamily: "Spectral" }}>
+      {/* Logo Header Section */}
+      <section className="bg-black text-white py-2">
+        <div className="container mx-auto px-4 flex flex-col justify-center items-center">
+          <div className="text-center">
+            <img
+              src={logo}
+              alt="Company Logo"
+              className="h-48 mx-auto"
+            />
+          </div>
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-light mb-4 tracking-wide">
+              Testimonials
+            </h1>
+            <p className="text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed text-[#d4b2a7] font-light">
+              What our clients say about our services
+            </p>
+          </div>
         </div>
       </section>
 

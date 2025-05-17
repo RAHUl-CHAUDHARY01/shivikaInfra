@@ -156,115 +156,115 @@ const Hero = () => {
               }}
             />
 
-            <div className="relative z-10 h-full flex flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24">
+            <div className="relative z-10 h-full flex flex-col justify-center">
               <div className="max-w-full">
-                <div className="flex flex-col md:grid md:grid-cols-3 md:items-center md:h-screen">
-                  {/* Left Side - Logo area */}
-                  <div className="hidden md:flex items-center justify-center h-[70vh]">
-                    <img
-                      src={logo}
-                      alt="Logo"
-                      className="object-contain max-h-full max-w-full px-4 mt-[-100px]"
-                    />
-                  </div>
+               <div className="flex flex-col md:h-screen">
+    {/* Logo area - centered on desktop */}
+    <div className="hidden md:flex items-center justify-center h-[50vh] mt-16">
+      <img
+        src={logo}
+        alt="Logo"
+        className="object-contain max-h-full max-w-full px-4"
+      />
+    </div>
 
-                  {/* Right Side - Text content */}
-                  <div className="col-span-2 px-6 py-10 md:py-0 md:pr-16 text-right relative">
-                    <div className="absolute -left-3 sm:-left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-black to-transparent"></div>
+    {/* Text content - below logo, left-aligned on desktop */}
+    <div className="pr-6 py-10 md:py-0 md:px-16 md:text-left md:self-start md:max-w-full relative pl-6 md:pl-6">
+      <div className="absolute -left-3 sm:-left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-black to-transparent md:block"></div>
 
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{
-                        width:
-                          index === currentSlide
-                            ? isMobile
-                              ? "40px"
-                              : "60px"
-                            : 0,
-                        transition: { delay: 0.2, duration: 0.8 },
-                      }}
-                      className="h-0.5 bg-white mb-3 sm:mb-6 ml-auto"
-                    />
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{
+          width:
+            index === currentSlide
+              ? isMobile
+                ? "40px"
+                : "60px"
+              : 0,
+          transition: { delay: 0.2, duration: 0.8 },
+        }}
+        className="h-0.5 bg-white mb-3 sm:mb-6 md:ml-0"
+      />
 
-                    <motion.h1
-                      initial={{ y: 40, opacity: 0 }}
-                      animate={{
-                        y: index === currentSlide ? 0 : 40,
-                        opacity: index === currentSlide ? 1 : 0,
-                        transition: { delay: 0.4, duration: 0.9 },
-                      }}
-                      className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-light mb-3 sm:mb-6"
-                      style={{
-                        fontFamily: "Cormorant, serif",
-                        letterSpacing: "0.05em",
-                        fontWeight: 300,
-                        lineHeight: 1.2,
-                        color: "#ffffff",
-                        textShadow: "0 2px 15px rgba(0,0,0,0.8)",
-                      }}
-                    >
-                      {isMobile && slide.title.length > 30
-                        ? slide.title.split(" ").slice(0, 5).join(" ") + "..."
-                        : slide.title}
-                    </motion.h1>
+      <motion.h1
+        initial={{ y: 40, opacity: 0 }}
+        animate={{
+          y: index === currentSlide ? 0 : 40,
+          opacity: index === currentSlide ? 1 : 0,
+          transition: { delay: 0.4, duration: 0.9 },
+        }}
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-light mb-3 sm:mb-6"
+        style={{
+          fontFamily: "Inter,Montserrat, sans-serif",
+          letterSpacing: "0.05em",
+          fontWeight: 300,
+          lineHeight: 1.2,
+          color: "#ffffff",
+          textShadow: "0 2px 15px rgba(0,0,0,0.8)",
+        }}
+      >
+        {isMobile && slide.title.length > 30
+          ? slide.title.split(" ").slice(0, 5).join(" ") + "..."
+          : slide.title}
+      </motion.h1>
 
-                    <motion.p
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{
-                        y: index === currentSlide ? 0 : 30,
-                        opacity: index === currentSlide ? 1 : 0,
-                        transition: { delay: 0.6, duration: 0.9 },
-                      }}
-                      className="text-sm sm:text-base md:text-lg lg:text-xl mb-5 sm:mb-10 max-w-full sm:max-w-xl md:max-w-2xl ml-auto"
-                      style={{
-                        fontFamily: "Montserrat, sans-serif",
-                        fontWeight: 300,
-                        letterSpacing: "0.04em",
-                        lineHeight: 1.6,
-                        color: "rgba(255,255,255,0.9)",
-                        textShadow: "0 2px 8px rgba(0,0,0,0.6)",
-                      }}
-                    >
-                      {isMobile && slide.subtitle.length > 60
-                        ? slide.subtitle.slice(0, 60) + "..."
-                        : slide.subtitle}
-                    </motion.p>
+      <motion.p
+        initial={{ y: 30, opacity: 0 }}
+        animate={{
+          y: index === currentSlide ? 0 : 30,
+          opacity: index === currentSlide ? 1 : 0,
+          transition: { delay: 0.6, duration: 0.9 },
+        }}
+        className="text-sm sm:text-base md:text-lg lg:text-xl mb-5 sm:mb-10 max-w-full sm:max-w-xl md:max-w-2xl md:ml-0"
+        style={{
+          fontFamily: "Montserrat, sans-serif",
+          fontWeight: 300,
+          letterSpacing: "0.04em",
+          lineHeight: 1.6,
+          color: "rgba(255,255,255,0.9)",
+          textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+        }}
+      >
+        {isMobile && slide.subtitle.length > 60
+          ? slide.subtitle.slice(0, 60) + "..."
+          : slide.subtitle}
+      </motion.p>
 
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{
-                        y: index === currentSlide ? 0 : 20,
-                        opacity: index === currentSlide ? 1 : 0,
-                        transition: { delay: 0.8, duration: 0.9 },
-                      }}
-                    >
-                      <Link
-                        to={
-                          index === 0
-                            ? "/contact"
-                            : index === 1
-                            ? "/services"
-                            : index === 2
-                            ? "/services"
-                            : "/about"
-                        }
-                        className="group relative inline-flex items-center justify-end"
-                        style={{
-                          fontFamily: "Montserrat, sans-serif",
-                          fontWeight: 400,
-                          letterSpacing: "0.1em",
-                        }}
-                      >
-                        <span className="absolute inset-0 border-b border-white/50 z-0"></span>
-                        <span className="relative z-10 px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base text-white group-hover:text-white/80 transition-all duration-300">
-                          {slide.cta}
-                        </span>
-                        <span className="relative z-10 w-0 h-0 ml-1 sm:ml-2 border-t-[4px] sm:border-t-[5px] border-t-transparent border-b-[4px] sm:border-b-[5px] border-b-transparent border-l-[4px] sm:border-l-[5px] border-l-white group-hover:translate-x-1 transition-transform duration-300"></span>
-                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white via-white to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                      </Link>
-                    </motion.div>
-                  </div>
-                </div>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{
+          y: index === currentSlide ? 0 : 20,
+          opacity: index === currentSlide ? 1 : 0,
+          transition: { delay: 0.8, duration: 0.9 },
+        }}
+      >
+        <Link
+          to={
+            index === 0
+              ? "/contact"
+              : index === 1
+              ? "/services"
+              : index === 2
+              ? "/services"
+              : "/about"
+          }
+          className="group relative inline-flex items-center justify-start"
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            fontWeight: 400,
+            letterSpacing: "0.1em",
+          }}
+        >
+          <span className="absolute inset-0 border-b border-white/50 z-0"></span>
+          <span className="relative z-10 px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base text-white group-hover:text-white/80 transition-all duration-300">
+            {slide.cta}
+          </span>
+          <span className="relative z-10 w-0 h-0 ml-1 sm:ml-2 border-t-[4px] sm:border-t-[5px] border-t-transparent border-b-[4px] sm:border-b-[5px] border-b-transparent border-l-[4px] sm:border-l-[5px] border-l-white group-hover:translate-x-1 transition-transform duration-300"></span>
+          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white via-white to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </Link>
+      </motion.div>
+    </div>
+  </div>
               </div>
             </div>
           </motion.div>

@@ -17,7 +17,7 @@ function AppContent() {
   );
   return (
     <>
-      {showLogo && <Logo />}
+      {/* {showLogo && <Logo />} */}
 
       <ScrollToTop />
 
