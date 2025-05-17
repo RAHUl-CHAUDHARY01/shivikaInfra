@@ -2,15 +2,28 @@ import Hero from "../components/Hero";
 import ServiceCard from "../components/ServiceCard";
 import { servicesData } from "../constants/services";
 import { testimonialsData } from "../constants/Testimonials";
+import { portfolioData } from "../constants/Portfolio";
 import TestimonialCard from "../components/TestimonialCard";
 import React from "react";
 import { Link } from "react-router-dom";
+import office from "../assets/office.webp";
 
 const Home = () => {
   const featuredServices = servicesData.slice(0, 3);
   const featuredTestimonials = testimonialsData
     .filter((t) => t.featured)
     .slice(0, 2);
+  
+  // Select a few projects from each section to showcase
+  const featuredProjects = [
+    ...portfolioData.filter(item => item.section === "section1").slice(0, 2),
+    ...portfolioData.filter(item => item.section === "section2").slice(0, 2),
+    ...portfolioData.filter(item => item.section === "section3").slice(0, 2)
+  ];
+
+  const handleImageError = (e) => {
+    e.target.src = office;
+  };
 
   return (
     <div className="flex flex-col font-sans">
@@ -103,6 +116,50 @@ const Home = () => {
               style={{ fontFamily: "Spectral", fontWeight: "300" }}
             >
               More Testimonials
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Preview */}
+      <section className="py-20 bg-[#f7f3ee]">
+        <div className="container mx-auto px-4">
+          <h2
+            className="text-4xl mb-14 text-center text-[#404040] tracking-wide"
+            style={{ fontFamily: "Spectral", fontWeight: "400" }}
+          >
+            Featured Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
+            {featuredProjects.map((project, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl"
+                style={{ height: "250px" }}
+              >
+                <img
+                  src={project.imageUrl}
+                  alt={project.title || `Project ${index + 1}`}
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                  onError={handleImageError}
+                />
+                <div className="absolute inset-0 bg-beige bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div className="text-white">
+                    <h3 className="text-xl font-light" style={{ fontFamily: "Spectral" }}>
+                      {project.title || `Project ${index + 1}`}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              to="/portfolio"
+              className="bg-[#707070] text-white font-normal px-6 py-2 rounded-sm hover:bg-[#555555] transition-all duration-300 inline-block shadow-md text-lg"
+              style={{ fontFamily: "Spectral", fontWeight: "300" }}
+            >
+              View All Projects
             </Link>
           </div>
         </div>

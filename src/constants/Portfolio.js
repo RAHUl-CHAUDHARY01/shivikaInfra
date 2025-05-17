@@ -23,146 +23,129 @@ export const portfolioData = [
       title: "JP AMAN",
       description: "Responsive e-commerce platform with custom checkout experience",
       imageUrl:jpaman ,
-      category: "web",
       section: "section1"
     },
     {
       id: 2,
-      title: "Financial Advisory Firm",
+      title: "JP AMAN",
       description: "Modern corporate site with interactive dashboards",
       imageUrl: jpaman2,
-      category: "web",
       section: "section1"
     },
     {
       id: 3,
-      title: "Wellness Spa Application",
+      title: "JP AMAN",
       description: "Booking platform with integrated payment system",
       imageUrl: jpaman3,
-      category: "web",
       section: "section1"
     },
     {
       id: 4,
-      title: "Culinary Blog",
+      title: "JP AMAN",
       description: "Recipe sharing platform with social features",
       imageUrl: jpaman4,
-      category: "web",
       section: "section1"
     },
     {
       id: 5,
-      title: "Tech Startup Homepage",
+      title: "JP AMAN",
       description: "Landing page with animated product demonstrations",
       imageUrl: jpaman5,
-      category: "web",
       section: "section1"
     },
     {
       id: 6,
-      title: "Travel Experience Platform",
+      title: "JP AMAN",
       description: "Interactive booking system with destination guides",
       imageUrl: jpaman6,
-      category: "web",
       section: "section1"
     },
     // Section 2: Branding & Identity
     {
       id: 9,
-      title: "Lumina Skincare",
+      title: "JP GREENS",
       description: "Luxury skincare brand identity and packaging",
       imageUrl: jpgreens,
-      category: "branding",
       section: "section2"
     },
     {
       id: 10,
-      title: "NordVenture Capital",
+      title: "JP GREENS",
       description: "Financial services brand system with custom iconography",
       imageUrl: jpgreens2,
-      category: "branding",
       section: "section2"
     },
     {
       id: 11,
-      title: "Aria Restaurant",
+       title: "JP GREENS",
       description: "Fine dining identity with menu and collateral design",
       imageUrl:jpgreens3,
-      category: "branding",
       section: "section2"
     },
     {
       id: 12,
-      title: "Evergreen Botanicals",
+      title: "JP GREENS",
       description: "Organic product line with sustainable packaging",
       imageUrl: jpgreens4,
-      category: "branding",
       section: "section2"
     },
     {
       id: 13,
-      title: "Pulse Fitness",
+      title: "JP GREENS", 
       description: "Gym and fitness center complete brand identity",
       imageUrl: jpgreens5,
-      category: "branding",
       section: "section2"
     },
     {
       id: 14,
-      title: "Sapphire Events",
+      title: "JP GREENS",
       description: "Luxury event planning visual identity",
       imageUrl: jpgreens6,
-      category: "branding",
       section: "section2"
     },
   
     // Section 3: Editorial & Photography
     {
       id: 17,
-      title: "Essence Magazine Editorial",
+      title: "GODREJ GOLF",
       description: "Fashion spread for summer collection feature",
       imageUrl: gg1,
-      category: "photography",
       section: "section3"
     },
     {
       id: 18,
-      title: "Architectural Digest Feature",
+      title: "GODREJ GOLF",
+
       description: "Modern homes photography series",
       imageUrl: gg2,
-      category: "photography",
       section: "section3"
     },
     {
       id: 19,
-      title: "Culinary Arts Spotlight",
+      title: "GODREJ GOLF",
       description: "Food photography for high-end restaurant",
       imageUrl: gg3,
-      category: "photography",
       section: "section3"
     },
     {
       id: 20,
-      title: "Product Catalog Shoot",
+            title: "GODREJ GOLF",
       description: "Minimalist product photography for luxury goods",
       imageUrl:gg4,
-      category: "photography",
       section: "section3"
     },
     {
       id: 21,
-      title: "Travel Documentary Series",
+          title: "GODREJ GOLF",
       description: "Environmental portraiture across global destinations",
       imageUrl: gg5,
-      category: "photography",
       section: "section3"
     },
     {
       id: 22,
-      title: "Cosmetics Campaign",
+      title: "GODREJ GOLF",
       description: "Beauty product photography with models",
       imageUrl: gg6,
-      category: "photography",
       section: "section3"
     }
   ];
