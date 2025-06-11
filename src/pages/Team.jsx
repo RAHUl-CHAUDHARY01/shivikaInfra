@@ -51,7 +51,7 @@ const Team = () => {
       </h3>
       <p className="text-center text-gray-600 max-w-2xl text-lg leading-relaxed">
         Everything I have achieved and continue to strive for is carried forward with the loving memory 
-        and eternal blessings of my beloved grandmother. Her wisdom, strength, and unconditional love 
+        and eternal blessings of my beloved mother. Her wisdom, strength, and unconditional love 
         continue to guide my path and inspire every endeavor. Though she is no longer with us in person, 
         her spirit lives on in every step of this journey, blessing all that we do with her enduring grace.
       </p>
