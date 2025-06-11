@@ -50,10 +50,10 @@ const Header = () => {
       name: 'Services',
       hasDropdown: true,
       categories: [
-        { name: 'GNIDA', subcategories: ['Compliance', 'Liasioning', 'Allotment'] },
+        {name:'UPSIDC', subcategories:['Liasioning','Compliance', 'Allotment']},
+        { name: 'GNIDA', subcategories: ['Industrial Spaces', 'Rent Permissions']},
         { name: 'Yamuna', subcategories: ['Map Approvals', 'NOCs', 'Pollution Certificate'] },
         { name: 'Real-Estate', subcategories: ['Land Plotting', 'Property Transactions', 'Group Housing'] },
-        {name:'UPSIDC', subcategories: ['Industrial Spaces', 'Rent Permissions']},
       ]
     },
     { path: '/team', name: 'Team' },
