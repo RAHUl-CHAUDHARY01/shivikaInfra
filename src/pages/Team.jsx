@@ -36,7 +36,7 @@ const Team = () => {
 <section className="py-16 bg-white">
   <div className="container mx-auto px-4">
     <h2 className="text-4xl font-light mb-12 text-center text-[#505050] tracking-wide">
-      With the Blessings of My Late Grandmother
+      With the Blessings of 
     </h2>
     <div className="flex flex-col items-center">
       <div className="mb-6 overflow-hidden border border-[#d4b2a7] w-64 h-64 shadow-lg">
