@@ -7,6 +7,7 @@ import TestimonialCard from "../components/TestimonialCard";
 import React from "react";
 import { Link } from "react-router-dom";
 import office from "../assets/office.webp";
+import ServiceLocations from "../components/ServiceLocations";
 
 const Home = () => {
   const featuredServices = servicesData.slice(0, 3);
@@ -121,7 +122,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Projects Preview */}
+      {/* Projects Preview
       <section className="py-20 bg-[#f7f3ee]">
         <div className="container mx-auto px-4">
           <h2
@@ -163,7 +164,8 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
+      <ServiceLocations/>
     </div>
   );
 };

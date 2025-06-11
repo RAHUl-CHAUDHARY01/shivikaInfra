@@ -1,8 +1,9 @@
 import { testimonialsData } from "../constants/Testimonials";
 import TestimonialCard from "../components/TestimonialCard";
 import React from "react";
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo5.webp';
 import { Link } from 'react-router-dom';
+import ServiceLocations from "../components/ServiceLocations";
 
 const Testimonials = () => {
   const featuredTestimonials = testimonialsData.filter((t) => t.featured);
@@ -65,6 +66,8 @@ const Testimonials = () => {
           </div>
         </div>
       </section>
+
+      <ServiceLocations/>
     </div>
   );
 };

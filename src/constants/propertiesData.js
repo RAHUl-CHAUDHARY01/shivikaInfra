@@ -47,7 +47,7 @@ export const propertiesData = {
   
     "jaypee-greens": {
       id: "jaypee-greens",
-      name: "JAYPEE GREENS WISH TOWN",
+      name: "JAYPEE GREENS GREATER NOIDA",
       developer: "Jaypee Greens",
       location: "Sectors 128/133/134, Noida",
       priceRange: "₹80 Lakhs – ₹2+ Crore",

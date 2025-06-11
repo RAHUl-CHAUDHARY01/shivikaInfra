@@ -16,48 +16,38 @@ import gg3 from '../assets/gg3.webp';
 import gg4 from '../assets/gg4.webp';
 import gg5 from '../assets/gg5.webp';
 import gg6 from '../assets/gg6.webp';
+import ats1 from '../assets/ats1.webp';
+import ats2 from '../assets/ats2.webp';
+import ats3 from '../assets/ats3.webp';
+import ats4 from '../assets/ats4.webp';
 export const portfolioData = [
     // Section 1: Web Design Projects
     {
       id: 1,
-      title: "JP AMAN",
+      title: "ATS PRISTINE",
       description: "Responsive e-commerce platform with custom checkout experience",
-      imageUrl:jpaman ,
+      imageUrl:ats1 ,
       section: "section1"
     },
     {
       id: 2,
-      title: "JP AMAN",
+      title: "ATS PRISTINE",
       description: "Modern corporate site with interactive dashboards",
-      imageUrl: jpaman2,
+      imageUrl: ats2,
       section: "section1"
     },
     {
       id: 3,
-      title: "JP AMAN",
+      title: "ATS PRISTINE",
       description: "Booking platform with integrated payment system",
-      imageUrl: jpaman3,
+      imageUrl: ats3,
       section: "section1"
     },
     {
       id: 4,
-      title: "JP AMAN",
+      title: "ATS PRISTINE",
       description: "Recipe sharing platform with social features",
-      imageUrl: jpaman4,
-      section: "section1"
-    },
-    {
-      id: 5,
-      title: "JP AMAN",
-      description: "Landing page with animated product demonstrations",
-      imageUrl: jpaman5,
-      section: "section1"
-    },
-    {
-      id: 6,
-      title: "JP AMAN",
-      description: "Interactive booking system with destination guides",
-      imageUrl: jpaman6,
+      imageUrl: ats4,
       section: "section1"
     },
     // Section 2: Branding & Identity

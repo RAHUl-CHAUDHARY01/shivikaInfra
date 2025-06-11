@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/logo2.webp';
+import logo from '../assets/logo5.webp';
 
 export default function Logo() {
   const [showLogo, setShowLogo] = useState(true);

@@ -1,6 +1,7 @@
 import React from "react";
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo5.webp';
 import { Link } from 'react-router-dom';
+import ServiceLocations from "../components/ServiceLocations";
 
 const Team = () => {
   // Main leadership data
@@ -187,6 +188,7 @@ const Team = () => {
           </div>
         </div>
       </section>
+      <ServiceLocations/>
     </div>
   );
 };

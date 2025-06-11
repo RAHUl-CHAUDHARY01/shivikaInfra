@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 import office from "../assets/office.webp";
-import logo from "../assets/logo.webp";
+import logo from "../assets/logo5.webp";
+import ServiceLocations from "../components/ServiceLocations";
 
 const About = () => {
   return (
@@ -13,7 +14,7 @@ const About = () => {
             <img
               src={logo}
               alt="Company Logo"
-              className="h-48 mx-auto"
+              className="h-60 mx-auto"
             />
           </div>
           <div className="container mx-auto px-4 text-center">
@@ -159,6 +160,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <ServiceLocations/>
     </div>
   );
 };

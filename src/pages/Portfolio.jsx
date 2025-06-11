@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { portfolioData } from "../constants/Portfolio";
 import office from "../assets/office.webp";
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo5.webp';
 import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
@@ -54,7 +54,7 @@ const Portfolio = () => {
         {/* Light rose gold */}
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-light tracking-wide mb-12 text-center text-[#505050]">
-            JP Aman Projects
+            ATS Pristine Projects
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {section1Items.map((item, index) => (
