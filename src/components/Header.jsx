@@ -107,8 +107,8 @@ const Header = () => {
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-transparent md:bg-[#404040]/90 shadow-md' : 'bg-transparent'} ${getHeaderHeight()}`}>
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between md:justify-start items-center">
+      <div className="container mx-auto px-4 md:border-b-1 md:border-white/35">
+        <div className="flex justify-between md:justify-start items-center  ">
           
           {/* Logo - Only visible on mobile when at hero section */}
           <Link to="/" className="flex-grow md:hidden">

@@ -15,7 +15,7 @@ const Contact = () => {
   }}
 >
         <div className="container mx-auto px-4 flex flex-col justify-center items-center">
-          <div className="text-center pt-5">
+          <div className="text-center pt-7">
             {/* Replace with your actual logo component or image */}
             <img 
               src={logo} 
