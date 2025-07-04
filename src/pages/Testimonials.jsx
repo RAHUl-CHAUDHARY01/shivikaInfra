@@ -1,14 +1,13 @@
 import { testimonialsData } from "../constants/Testimonials";
 import TestimonialCard from "../components/TestimonialCard";
 import React from "react";
-import logo from '../assets/logo5.webp';
-import { Link } from 'react-router-dom';
+import logo from '../assets/logo2.webp';
 import ServiceLocations from "../components/ServiceLocations";
 
 const Testimonials = () => {
   const featuredTestimonials = testimonialsData.filter((t) => t.featured);
   const regularTestimonials = testimonialsData.filter((t) => !t.featured);
-  const videoTestimonials = testimonialsData.filter((t) => t.video);
+  // const videoTestimonials = testimonialsData.filter((t) => t.video);
 
   return (
     <div className="flex flex-col" style={{ fontFamily: "Spectral" }}>

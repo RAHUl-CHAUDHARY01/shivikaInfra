@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../assets/logo5.webp';
+import logo from '../assets/logo2.webp';
 import { Link } from 'react-router-dom';
 import ServiceLocations from "../components/ServiceLocations";
 import image from '../assets/grandmother.webp';

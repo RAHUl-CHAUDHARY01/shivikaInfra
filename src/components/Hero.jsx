@@ -6,7 +6,7 @@ import hero2 from "../assets/image2.webp";
 import hero3 from "../assets/jpaman.webp";
 import hero4 from "../assets/jpgreens.webp";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo5.webp";
+import logo from "../assets/logo2.webp";
 const Hero = () => {
   // Refined color theme palette
   const theme = {

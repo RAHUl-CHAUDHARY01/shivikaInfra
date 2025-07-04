@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { portfolioData } from "../constants/Portfolio";
 import office from "../assets/office.webp";
-import logo from '../assets/logo5.webp';
+import logo from '../assets/logo2.webp';
 import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const categories = [
-    "all",
-    ...new Set(portfolioData.map((item) => item.category)),
-  ];
-
   const section1Items = portfolioData
     .filter((item) => item.section === "section1")
     .slice(0, 8);

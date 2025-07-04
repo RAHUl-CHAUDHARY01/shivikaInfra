@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import office from "../assets/office.webp";
-import logo from "../assets/logo5.webp";
+import logo from "../assets/logo2.webp";
 import ServiceLocations from "../components/ServiceLocations";
 
 const About = () => {
@@ -138,33 +138,36 @@ const About = () => {
         </div>
       </section>
 
-      {/*Vision */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-3xl font-light mb-12 text-center text-[#505050] tracking-wide`">
-            {" "}
-            Our Vision
-          </div>
-          <div className="flex flex-col md:flex-row gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="md:w-full bg-[#404040] text-white p-8 rounded-sm shadow-md"
-            >
-              <p className="text-lg leading-relaxed">
-                This organisation is not just a workplace , this is a place
-                where the whole Shivika family comes along to build up one
-                vision that is the growth of an individual and the organisation.
-                We just don't build houses or properties , we build thoughts of
-                an individual , our team expertise with catering their needs
-                with our experties of consultancy.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Vision */}
+<section className="py-16 bg-[#f9f9f9]">
+  <div className="container mx-auto px-4">
+    <div className="text-3xl font-light mb-12 text-center text-[#505050] tracking-wide">
+      Our Vision
+    </div>
+    <div className="flex flex-col md:flex-row gap-12">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        viewport={{ once: true }}
+        className="md:w-full p-8  "
+      >
+        <p className="text-lg leading-relaxed text-[#333]">
+          At Shivika, our vision extends far beyond real estate. We are not just
+          building structures—we are shaping aspirations and nurturing growth.
+          Our organization operates as a family where every member contributes
+          toward a shared goal: the personal and professional development of
+          individuals and the collective progress of our company. We believe in
+          constructing not just properties, but strong relationships and
+          meaningful experiences. With deep-rooted expertise in consultancy, our
+          team is committed to understanding and fulfilling client needs with
+          clarity, care, and excellence.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
       <ServiceLocations/>
     </div>
   );

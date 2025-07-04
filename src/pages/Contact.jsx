@@ -2,7 +2,7 @@ import ContactForm from '../components/ContactForm';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo5.webp';
+import logo from '../assets/logo2.webp';
 const Contact = () => {
   return (
     <div className="flex flex-col" style={{fontFamily:'Spectral'}}>

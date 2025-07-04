@@ -50,26 +50,28 @@ const Header = () => {
       name: 'Services',
       hasDropdown: true,
       categories: [
-        {name:'UPSIDC', subcategories:['Liasioning','Compliance', 'Allotment']},
-        { name: 'GNIDA', subcategories: ['Industrial Spaces', 'Rent Permissions']},
-        { name: 'Yamuna', subcategories: ['Map Approvals', 'NOCs', 'Pollution Certificate'] },
-        { name: 'Real-Estate', subcategories: ['Land Plotting', 'Property Transactions', 'Group Housing'] },
+        { name: 'UPSIDC', hasDropdown: true, subcategories: ['Liasioning & Compliance', 'Industrial Real-Estate , Residential Real-Estate'] },
+        { name: 'Greator Noida Authority', hasDropdown: false, subcategories: [] },
+        { name: 'Yamuna', hasDropdown: false, subcategories: [] },
+        { name: 'Real-Estate', hasDropdown: true, subcategories: ['Residential', 'Commercial', 'Industrial', 'Group Housing/Plotting', '6% & 7% plot'] },
       ]
     },
     { path: '/team', name: 'Team' },
     { path: '/testimonials', name: 'Testimonials' },
-    { path: '/portfolio', name: 'Portfolio', hasDropdown: true, categories: [{
-          name: 'Upcoming Project',
-          subcategories: upcomingProjects.map(property => property.name),
-          isPropertyList: true,
-          properties: upcomingProjects
-        },
-        {
-          name: 'Ongoing Project',
-          subcategories: ongoingProjects.map(property => property.name),
-          isPropertyList: true,
-          properties: ongoingProjects
-        }]},
+    {
+      path: '/portfolio', name: 'Portfolio', hasDropdown: true, categories: [{
+        name: 'Upcoming Project',
+        subcategories: upcomingProjects.map(property => property.name),
+        isPropertyList: true,
+        properties: upcomingProjects
+      },
+      {
+        name: 'Ongoing Project',
+        subcategories: ongoingProjects.map(property => property.name),
+        isPropertyList: true,
+        properties: ongoingProjects
+      }]
+    },
     { path: '/contact', name: 'Contact' },
   ];
 
@@ -109,7 +111,7 @@ const Header = () => {
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-transparent md:bg-[#404040]/90 shadow-md' : 'bg-transparent'} ${getHeaderHeight()}`}>
       <div className="container mx-auto px-4 md:border-b-1 md:border-white/35">
         <div className="flex justify-between md:justify-start items-center  ">
-          
+
           {/* Logo - Only visible on mobile when at hero section */}
           <Link to="/" className="flex-grow md:hidden">
             {isAtTop && location.pathname === '/' && (
@@ -148,47 +150,56 @@ const Header = () => {
                   <div className="absolute left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="bg-white rounded-md shadow-lg py-2">
                       {link.categories.map((category, idx) => (
-                        <div key={idx} className="px-4 py-2 hover:bg-gray-100 relative group/category">
-                          <div className="font-medium text-gray-800 flex items-center justify-between">
-                            {category.name}
-                            <FaChevronRight className="text-xs text-gray-500" />
-                          </div>
-                          <div className="absolute left-full top-0 w-56 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-300">
-                            <div className="bg-white rounded-md shadow-lg py-2 ml-2">
-                              {category.subcategories.map((subcategory, subIdx) => {
-                                const propertyItem = category.isPropertyList
-                                  ? category.properties.find(p => p.name === subcategory)
-                                  : null;
+                        category.hasDropdown ? (
+                          <div key={idx} className="px-4 py-2 hover:bg-gray-100 relative group/category">
+                            <div className="font-medium text-gray-800 flex items-center justify-between">
+                              {category.name}
+                              <FaChevronRight className="text-xs text-gray-500" />
+                            </div>
+                            <div className="absolute left-full top-0 w-56 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-300">
+                              <div className="bg-white rounded-md shadow-lg py-2 ml-2">
+                                {category.subcategories.map((subcategory, subIdx) => {
+                                  const propertyItem = category.isPropertyList
+                                    ? category.properties.find(p => p.name === subcategory)
+                                    : null;
 
-                                return (
-                                  <div
-                                    key={subIdx}
-                                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#b76e79] cursor-pointer"
-                                    onClick={() => handleSubcategoryClick(
-                                      category.name,
-                                      subcategory,
-                                      category.isPropertyList,
-                                      propertyItem?.id
-                                    )}
-                                  >
-                                    <div className="flex items-center justify-between">
-                                      <span>{subcategory}</span>
-                                    </div>
-                                    {propertyItem && (
-                                      <div className="text-xs text-gray-500 mt-1">
-                                        {propertyItem.location}
+                                  return (
+                                    <div
+                                      key={subIdx}
+                                      className="px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#b76e79] cursor-pointer"
+                                      onClick={() => handleSubcategoryClick(
+                                        category.name,
+                                        subcategory,
+                                        category.isPropertyList,
+                                        propertyItem?.id
+                                      )}
+                                    >
+                                      <div className="flex items-center justify-between">
+                                        <span>{subcategory}</span>
                                       </div>
-                                    )}
-                                  </div>
-                                );
-                              })}
+                                      {propertyItem && (
+                                        <div className="text-xs text-gray-500 mt-1">
+                                          {propertyItem.location}
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        ) : (
+                          <div key={idx} className="px-4 py-2 hover:bg-gray-100 relative group/category">
+                            <div className="font-medium text-gray-800 flex items-center justify-between">
+                              {category.name}
+                            </div>
+                          </div>
+                        )
                       ))}
                     </div>
                   </div>
                 )}
+
               </div>
             ))}
           </nav>
@@ -236,7 +247,7 @@ const Header = () => {
                             >
                               <span className="font-medium tracking-wide">{link.name}</span>
                             </button>
-                            
+
                             {link.hasDropdown && (
                               <button
                                 className="p-2 text-white"
@@ -249,7 +260,7 @@ const Header = () => {
                               </button>
                             )}
                           </div>
-                          
+
                           {link.hasDropdown && (
                             <Accordion id={`accordion-${index}`} isActive={location.pathname === link.path}>
                               <div className="pl-4 space-y-2 mt-1 mb-2">
@@ -299,7 +310,7 @@ const Header = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 {/* Footer Contact Information */}
                 <div className="px-4 py-6 bg-[#353535]">
                   <h3 className="text-[#d4b2a7] font-medium text-sm mb-3 border-b border-[#505050] pb-1">Contact Information</h3>
@@ -316,7 +327,7 @@ const Header = () => {
                         <span className="ml-2 break-all">{item.text}</span>
                       </motion.div>
                     ))}
-                    
+
                     {/* Schedule Meeting Button */}
                     <motion.div
                       initial={{ y: 10, opacity: 0 }}
@@ -324,7 +335,7 @@ const Header = () => {
                       transition={{ delay: 0.6 }}
                       className="mt-3 pt-2 border-t border-[#505050]"
                     >
-                      <button 
+                      <button
                         className="w-full bg-[#b76e79] hover:bg-[#a05c66] text-white font-medium py-2 px-4 rounded-sm text-sm transition-colors"
                         onClick={() => {
                           handleNavLinkClick('/contact?meeting=true');

@@ -1,31 +1,36 @@
 import Hero from "../components/Hero";
 import ServiceCard from "../components/ServiceCard";
-import { servicesData } from "../constants/services";
 import { testimonialsData } from "../constants/Testimonials";
-import { portfolioData } from "../constants/Portfolio";
 import TestimonialCard from "../components/TestimonialCard";
 import React from "react";
 import { Link } from "react-router-dom";
-import office from "../assets/office.webp";
 import ServiceLocations from "../components/ServiceLocations";
 
 const Home = () => {
-  const featuredServices = servicesData.slice(0, 3);
+const featuredServices = [
+  {
+    title: "UPSIDC",
+    description: "End-to-end support for map approval under UPSIDC regulations.",
+    category: "compliance",
+    icon: "🧾"  // Represents documents and approvals
+  },
+  {
+    title: "GNIDA",
+    description: "Seamless assistance for completion and occupancy certificates from GNIDA.",
+    category: "compliance",
+    icon: "📑"  // Represents official certificates
+  },
+  {
+    title: "YAMUNA",
+    description: "Professional guidance for property transfer processes in Yamuna Authority zones.",
+    category: "compliance",
+    icon: "📬"  // Represents transfer and ownership
+  }
+];
   const featuredTestimonials = testimonialsData
     .filter((t) => t.featured)
     .slice(0, 2);
   
-  // Select a few projects from each section to showcase
-  const featuredProjects = [
-    ...portfolioData.filter(item => item.section === "section1").slice(0, 2),
-    ...portfolioData.filter(item => item.section === "section2").slice(0, 2),
-    ...portfolioData.filter(item => item.section === "section3").slice(0, 2)
-  ];
-
-  const handleImageError = (e) => {
-    e.target.src = office;
-  };
-
   return (
     <div className="flex flex-col font-sans">
       <Hero />

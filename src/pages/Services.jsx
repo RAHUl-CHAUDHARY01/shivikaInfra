@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { servicesData } from '../constants/services';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
-import logo from '../assets/logo5.webp';
+import logo from '../assets/logo2.webp';
 import ServiceLocations from '../components/ServiceLocations';
 
 

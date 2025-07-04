@@ -1,20 +1,20 @@
 import React from 'react'; 
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';
 import WhatsAppButton from './components/Whatsapp';
 import ScrollToTop from './ScrollToTop';
-import Logo from './pages/Logo';
+// import Logo from './pages/Logo';
 
 function AppContent() {
-  const location = useLocation();
-  const path = location.pathname;
-    const showLogo = !(
-    path === '/' || 
-    path === '/property' || 
-    path.startsWith('/property/')
-  );
+  // const location = useLocation();
+  // const path = location.pathname;
+  //   const showLogo = !(
+  //   path === '/' || 
+  //   path === '/property' || 
+  //   path.startsWith('/property/')
+  // );
   return (
     <>
       {/* {showLogo && <Logo />} */}
